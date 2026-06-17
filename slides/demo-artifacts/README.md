@@ -1,0 +1,23 @@
+# Demo Artifacts
+
+This directory contains ready-to-show artifacts for the live course.
+
+Use these files during lecture, walkthroughs, and demos when you want concrete examples without building the artifact live from scratch.
+
+## Artifact Set
+
+- [day-01-primitive-kit.md](day-01-primitive-kit.md)
+- [day-02-explore-findings-example.md](day-02-explore-findings-example.md)
+- [day-02-request-changes-example.md](day-02-request-changes-example.md)
+- [day-03-review.md](day-03-review.md)
+- [day-04-workflow-retro.md](day-04-workflow-retro.md)
+- [anti-patterns/README.md](anti-patterns/README.md)
+
+## How to Use These Files
+
+- open them directly during the corresponding day
+- use them as “good artifact” examples
+- compare them against weaker participant artifacts
+- annotate them live to show what is strong, missing, or risky
+
+For critique exercises, use the anti-pattern set in [anti-patterns/README.md](anti-patterns/README.md).

@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+
+<html><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Claude Code One-Day Training Student Workbook | ClosedLoop.AI</title>
+<style>
+
+:root{
+  --cl-blue:#41A3FF;
+  --cl-navy:#1F222B;
+  --cl-ink:#111827;
+  --cl-slate:#5B6472;
+  --cl-muted:#738091;
+  --cl-line:#D9E2EF;
+  --cl-soft:#F4F8FC;
+  --cl-blue-soft:#E8F4FF;
+  --cl-page:#FFFFFF;
+  --cl-code:#EEF2F7;
+  --cl-code-text:#0369A1;
+  --cl-warm:#F8FAFC;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:linear-gradient(180deg,#EEF5FC 0%,#F8FAFC 48%,#FFFFFF 100%);
+  color:var(--cl-ink);
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  line-height:1.64;
+  font-size:17px;
+}
+.page{
+  max-width:1040px;
+  margin:36px auto;
+  background:var(--cl-page);
+  padding:0 72px 54px;
+  border:1px solid var(--cl-line);
+  box-shadow:0 20px 60px rgba(31,34,43,.10);
+  border-radius:24px;
+  overflow:hidden;
+}
+.hero{
+  margin:0 -72px 42px;
+  padding:44px 72px 52px;
+  color:#fff;
+  background:radial-gradient(circle at 88% -10%, rgba(65,163,255,.42), transparent 34%), linear-gradient(135deg,#111827 0%, #1F222B 58%, #10131A 100%);
+  position:relative;
+}
+.hero:after{
+  content:""; position:absolute; inset:auto 0 0 0; height:6px; background:var(--cl-blue);
+}
+.brand{display:flex;align-items:center;gap:13px;margin-bottom:46px}
+.brand-logo svg{width:42px;height:42px;display:block}.brand-word{font-weight:800;letter-spacing:.02em;font-size:18px;color:#F8FAFC}
+.hero-eyebrow{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:.16em;color:var(--cl-blue);margin-bottom:12px}
+.hero-title{font-size:48px;line-height:1.05;margin:0 0 16px;font-weight:860;max-width:860px;letter-spacing:-.035em;border:0;padding:0;color:#fff;font-family:Inter, ui-sans-serif, system-ui, sans-serif}
+.hero-subtitle{font-size:20px;line-height:1.45;color:#DCE8F5;margin:0;max-width:780px}
+.toc{background:var(--cl-soft);border:1px solid var(--cl-line);border-left:7px solid var(--cl-blue);padding:22px 28px;margin:32px 0 42px;border-radius:16px}
+.toc h2{margin:0 0 10px;color:var(--cl-navy);font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-size:21px}.toc ol{margin:0 0 0 23px}.toc li{margin:5px 0}
+h1:not(.hero-title){font-size:36px;line-height:1.12;margin:54px 0 18px;padding-top:28px;border-top:2px solid var(--cl-navy);letter-spacing:-.025em;color:var(--cl-navy);font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-weight:850}
+h2{font-size:26px;line-height:1.2;margin:38px 0 14px;color:var(--cl-navy);font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-weight:800;letter-spacing:-.015em}
+h3{font-size:20px;line-height:1.25;margin:30px 0 10px;color:#0F172A;font-family:Inter,ui-sans-serif,system-ui,sans-serif;font-weight:800}
+p{margin:13px 0;color:#1F2937}strong{font-weight:800;color:#0F172A}ul{margin:12px 0 18px 24px;padding:0}li{margin:6px 0}hr{border:0;border-top:1px solid var(--cl-line);margin:36px 0}.objective,.callout{background:var(--cl-blue-soft);border:1px solid #BBDFFF;border-left:7px solid var(--cl-blue);border-radius:14px;padding:16px 20px;margin:22px 0 30px;color:#163149}.callout{background:#F7FBFF}.objective strong{color:var(--cl-navy)}
+pre{background:var(--cl-code);color:var(--cl-code-text);border:1px solid #CBD5E1;border-left:5px solid var(--cl-blue);border-radius:14px;padding:18px 20px;overflow:auto;font-size:14px;line-height:1.55;box-shadow:none;white-space:pre-wrap}pre code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;background:#EAF3FB;color:#075985;padding:.12em .32em;border-radius:5px;font-size:.92em}.table-wrap{overflow-x:auto;margin:20px 0 26px;border:1px solid var(--cl-line);border-radius:14px;background:#fff;box-shadow:0 4px 18px rgba(15,23,42,.04)}table.data-table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.35;min-width:650px}table.data-table th{background:var(--cl-navy);color:#fff;text-align:left;padding:12px 14px;font-weight:800;border-right:1px solid rgba(255,255,255,.16);vertical-align:bottom}table.data-table th:last-child{border-right:0}table.data-table td{padding:12px 14px;border-top:1px solid var(--cl-line);vertical-align:top;color:#253044}table.data-table tr:nth-child(even) td{background:#F7FAFD}code{font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;background:#EAF3FB;color:#075985;padding:.12em .32em;border-radius:5px;font-size:.92em}.doc-footer{border-top:1px solid var(--cl-line);margin:56px -72px 0;padding:24px 72px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;color:var(--cl-muted);background:#F8FAFC}.footer-brand{display:flex;align-items:center;gap:10px;color:var(--cl-navy)}.footer-logo svg{width:24px;height:24px;display:block}.copyright{font-size:13px;color:var(--cl-muted)}
+@media(max-width:760px){body{font-size:16px}.page{margin:0;border-radius:0;padding:0 24px 40px}.hero{margin:0 -24px 32px;padding:32px 24px 40px}.hero-title{font-size:34px}.hero-subtitle{font-size:18px}.doc-footer{margin:42px -24px 0;padding:20px 24px;display:block}.copyright{margin-top:8px}h1:not(.hero-title){font-size:30px}.table-wrap{margin-left:-4px;margin-right:-4px}}
+
+ol{margin:12px 0 20px 28px;padding-left:20px}ol li{margin:8px 0;line-height:1.55;padding-left:3px}blockquote{margin:20px 0;padding:16px 22px;border-left:7px solid var(--cl-blue);background:#F3F8FD;border-radius:0 14px 14px 0;color:#163149;font-size:16px;line-height:1.6}blockquote p{margin:0;color:#163149}pre + hr, hr + pre{margin-top:18px}
+@media print{body{background:white;font-size:12pt}.page{box-shadow:none;border:0;margin:0;max-width:none;border-radius:0;padding:0 36pt 36pt}.hero{margin:0 -36pt 28pt;padding:30pt 36pt 34pt;print-color-adjust:exact;-webkit-print-color-adjust:exact}.hero-title{font-size:30pt}a{color:inherit}.table-wrap{break-inside:avoid}pre{background:var(--cl-code);color:var(--cl-code-text);border:1px solid #CBD5E1;border-left:5px solid var(--cl-blue);border-radius:14px;padding:18px 20px;overflow:auto;font-size:14px;line-height:1.55;box-shadow:none;white-space:pre-wrap}.doc-footer{margin:40pt -36pt 0;padding:18pt 36pt}}
+
+
+/* Chapter pagination for screen/PDF export */
+.chapter{padding-top:18px;margin-top:28px;}
+.chapter + .chapter{border-top:0;margin-top:64px;}
+.chapter h1:first-child{page-break-before:always;break-before:page;margin-top:0;}
+.chapter:first-of-type h1:first-child{page-break-before:auto;break-before:auto;}
+
+ol{margin:12px 0 20px 28px;padding-left:20px}ol li{margin:8px 0;line-height:1.55;padding-left:3px}blockquote{margin:20px 0;padding:16px 22px;border-left:7px solid var(--cl-blue);background:#F3F8FD;border-radius:0 14px 14px 0;color:#163149;font-size:16px;line-height:1.6}blockquote p{margin:0;color:#163149}pre + hr, hr + pre{margin-top:18px}
+@media print{.chapter{break-inside:auto;}.chapter h1:first-child{page-break-before:always;break-before:page;padding-top:0;margin-top:0;}.chapter:first-of-type h1:first-child{page-break-before:auto;break-before:auto;} .toc{break-after:page;page-break-after:always;}}
+@media screen{.chapter{position:relative;padding-top:34px;} .chapter + .chapter{border-top:1px solid var(--cl-line);} }
+
+/* Final readability fixes */
+pre{background:#EEF2F7!important;color:#0369A1!important;border:1px solid #CBD5E1!important;border-left:5px solid var(--cl-blue)!important;box-shadow:none!important;}
+pre code{background:transparent!important;color:#0369A1!important;padding:0!important;border-radius:0!important;font-size:1em!important;line-height:1.55!important;}
+blockquote, blockquote p{white-space:pre-line;}
+
+.book-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0 36px}.book-meta .card{background:#F8FAFC;border:1px solid var(--cl-line);border-radius:14px;padding:14px 16px}.book-meta .label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.12em;color:var(--cl-muted);font-weight:800}.book-meta .value{display:block;margin-top:4px;color:var(--cl-navy);font-weight:850}.module-kicker{font-size:13px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--cl-blue);margin:0 0 8px}.chapter-summary{font-size:18px;color:#334155;margin:0 0 24px}.learning-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:18px 0 24px;padding:0;list-style:none}.learning-list li{background:#F8FAFC;border:1px solid var(--cl-line);border-radius:12px;padding:12px 14px;margin:0}.example-title{font-weight:850;color:var(--cl-navy);margin:22px 0 8px}.checkpoint{background:#FFF7ED;border:1px solid #FED7AA;border-left:7px solid #FB923C;border-radius:14px;padding:16px 20px;margin:24px 0;color:#431407}.checkpoint strong{color:#7C2D12}.exercise{background:#F0FDF4;border:1px solid #BBF7D0;border-left:7px solid #22C55E;border-radius:14px;padding:16px 20px;margin:24px 0;color:#052E16}.exercise strong{color:#14532D}.aside{background:#FAFAFA;border:1px solid var(--cl-line);border-radius:14px;padding:16px 20px;margin:22px 0}.source-note{font-size:13px;color:var(--cl-muted);border-top:1px solid var(--cl-line);margin-top:34px;padding-top:16px}.smallcaps{font-size:12px;text-transform:uppercase;letter-spacing:.12em;font-weight:850;color:var(--cl-muted)}.template-list dt{font-weight:850;color:var(--cl-navy);margin-top:14px}.template-list dd{margin:4px 0 8px 18px;color:#334155}.toc .duration{color:var(--cl-muted);font-size:14px;margin-left:4px}@media(max-width:760px){.book-meta,.learning-list{grid-template-columns:1fr}}
+
+.repo-links a{color:#0369A1;font-weight:700;text-decoration:none}.repo-links a:hover{text-decoration:underline}.callout a{color:#0369A1;font-weight:700;text-decoration:none}.callout a:hover{text-decoration:underline}
+
+.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0 28px}.resource-card{background:#F7FBFF;border:1px solid var(--cl-line);border-left:5px solid var(--cl-blue);border-radius:14px;padding:14px 16px}.resource-card h3{margin:0 0 8px;font-size:17px}.resource-card p{margin:6px 0;font-size:15px}.resource-card a{color:#0369A1;font-weight:700;text-decoration:none}.resource-card a:hover{text-decoration:underline}.tryit{background:#F4F8FC;border:1px solid var(--cl-line);border-left:7px solid #1F222B;border-radius:14px;padding:16px 20px;margin:22px 0 30px}.tryit h3{margin-top:0}.compact-table td:first-child{font-weight:800;color:#0F172A}@media(max-width:760px){.resource-grid{grid-template-columns:1fr}}
+
+.tone-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:20px 0 28px}.tone-card{background:#F7FBFF;border:1px solid var(--cl-line);border-left:6px solid var(--cl-blue);border-radius:14px;padding:16px 18px}.tone-card h3{margin-top:0}.check-table td:first-child{font-weight:800;color:var(--cl-navy)}@media(max-width:760px){.tone-grid{grid-template-columns:1fr}}
+</style></head><body><main class="page"><header class="hero"><div class="brand"><div class="brand-logo"><svg fill="none" height="1024" viewbox="0 0 1025 1024" width="1025" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.34808 508.688C3.47916 575.669 15.9681 642.154 41.0901 704.286C66.2122 766.419 103.467 822.961 150.693 870.633C197.919 918.304 254.176 956.155 316.199 981.989C378.222 1007.82 444.777 1021.13 512 1021.13C579.224 1021.13 645.778 1007.82 707.801 981.989C769.824 956.155 826.081 918.304 873.307 870.633C920.533 822.961 957.788 766.419 982.91 704.286C1008.03 642.154 1020.52 575.669 1019.65 508.688C1019.65 506.998 1019.65 505.392 1019.65 503.701H734.716C734.716 505.392 734.716 506.998 734.716 508.688C734.716 552.61 721.644 595.546 697.154 632.064C672.664 668.583 637.856 697.044 597.131 713.848C556.407 730.652 511.597 735.045 468.367 726.47C425.138 717.895 385.431 696.738 354.269 665.675C323.108 634.611 301.891 595.037 293.302 551.957C284.713 508.877 289.138 464.227 306.018 423.653C322.897 383.08 351.472 348.405 388.13 324.016C424.787 299.626 467.88 286.617 511.958 286.634H512.721L512.382 2.8742C445.686 2.81867 379.633 15.861 317.998 41.2556C256.363 66.6503 200.354 103.9 153.173 150.874C105.993 197.849 68.5644 253.628 43.0281 315.024C17.4918 376.42 4.34806 442.228 4.34808 508.688Z" fill="white"></path>
+<path d="M585.251 8.20435V299.149C616.254 309.879 644.496 327.3 667.958 350.168C691.421 373.036 709.524 400.786 720.975 431.435H1013.8C997.163 324.504 946.567 225.702 869.437 149.53C792.308 73.3574 692.706 23.8259 585.251 8.20435Z" fill="#41A3FF"></path>
+</svg>
+</div><div class="brand-word">ClosedLoop.AI</div></div><div class="hero-eyebrow">ClosedLoop.AI Student Workbook</div><h1 class="hero-title">Claude Code One-Day Intensive Expanded Student Workbook</h1><p class="hero-subtitle">A hands-on follow-along workbook with repo-backed examples, file locations, commands, exercises, and desk-reference patterns for the full five-hour Claude Code intensive.</p></header>
+<div class="book-meta"><div class="card"><span class="label">Format</span><span class="value">Five-hour live intensive</span></div><div class="card"><span class="label">Audience</span><span class="value">IB Global Engineering</span></div><div class="card"><span class="label">Output</span><span class="value">Reusable operating artifacts</span></div></div>
+<section id="chapter_0"><h1>How to Use This Workbook</h1>
+<p>This workbook turns the one-day agenda and instructor presentation guide into a readable companion. You want more than slide bullets — a practical operating model, concrete artifact templates, and enough explanation to keep applying the ideas after today’s session ends.</p>
+<p>This session assumes mandatory setup pre-work. You should arrive with Claude Code working, the repository cloned, demo commands verified, editor and terminal ready, and your baseline tool-permission posture understood. Do not spend live time repairing local setup; spend it practicing primitive design, planning, investigation, review, and workflow design.</p>
+<div class="objective"><strong>Course outcomes:</strong> By the end of today, you should have a Claude Code primitive kit, Implementation Plan, Explore findings, Request Changes, Review, Workflow, and one Workflow retro.</div>
+<div class="callout"><strong>Why this pays off:</strong> None of these artifacts are paperwork — each one is leverage. A primitive kit stops the team re-solving solved problems. A compact plan lets the model land a change in one pass instead of five. An Explore findings prevents the expensive regression before it ships. Token discipline lowers your cost-to-serve on every run. The return is concrete: fewer wasted sessions, faster time-to-shipped, and reusable assets that compound each time another engineer picks them up.</div>
+<div class="callout"><strong>One running example:</strong> A single scenario threads the whole day — an evidence-first triage and fix of a <strong>refresh-token rotation bug</strong>. The artifacts build on each other by pointing at the ones before them: the Implementation Plan (Module 2) frames the Explore findings and Request Changes (Module 3), which feed the Review (Module 4), which the Workflow (Module 5) ties into one repeatable loop. By the end you have walked a complete evidence-first bug fix, end to end.</div>
+<div class="callout"><strong>ClosedLoop’s operating model (worth absorbing even if you never use the product):</strong> agents produce <strong>Documents</strong> — an Implementation Plan, a Review, and so on — and humans govern them at milestones: <strong>Draft → In Review → Approved → Executed → Done</strong>. A <strong>Workflow</strong> is the named sequence that orchestrates those steps with human gates. The artifacts and habits in this workbook use that same nomenclature, so by the end you are already thinking in this operating model.</div>
+<h2>Course Map</h2>
+<div class="toc"><h2>Modules</h2><ol><li><a href="#student_start_here">Start Here: Student Follow-Along Guide</a></li><li><a href="#chapter_0">How to Use This Workbook</a></li><li><a href="#module_1">Module 1: Build Claude Code Primitives</a></li><li><a href="#module_2">Module 2: Planning and Context Management</a></li><li><a href="#module_3">Module 3: Intent Recovery and Dynamic Evidence</a></li><li><a href="#module_4">Module 4: Review, Test, and Verify</a></li><li><a href="#module_5">Module 5: Workflow Design and Minimal Improvement Loop</a></li><li><a href="#student_resources">Desk Reference and Repo Links</a></li><li><a href="#concrete_examples">Concrete Examples, File Locations, and Repo Links</a></li><li><a href="#token_efficiency">Token Efficiency Throughout the Course</a></li><li><a href="#reader_alignment">Alignment With the 15-Minute Modules</a></li><li><a href="#token_savings_field_guide">Token Savings Field Guide</a></li></ol></div><section class="chapter" id="timeboxes"><h1>One-day timeboxes</h1><div class="table-wrap"><table class="data-table"><thead><tr><th>Module</th><th>Time</th><th>Hands-on center</th><th>Must leave with</th></tr></thead><tbody><tr><td>1. Build Claude Code primitives</td><td>70 min</td><td>Create tool posture, command, skill, subagent, plugin note</td><td>Claude Code primitive kit</td></tr><tr><td>2. Planning and context management</td><td>55 min</td><td>Convert messy intake into Implementation Plan</td><td>Implementation Plan and context map</td></tr><tr><td>3. Intent recovery and dynamic evidence</td><td>60 min</td><td>Recover why from git/issues/logs and build Request Changes</td><td>Explore findings and Request Changes</td></tr><tr><td>4. Review, test, and verify</td><td>60 min</td><td>Review diff against brief and produce Review</td><td>Findings and Review</td></tr><tr><td>5. Workflow and improvement loop</td><td>45 min</td><td>Design named workflow with handoffs, gates, stop conditions</td><td>Workflow and improvement note</td></tr></tbody></table></div></section>
+<h2>The recurring critique pattern</h2>
+<p>Every module uses the same critique pattern because the course is artifact-first. Do not ask only whether an artifact looks polished. Ask whether it can serve as a downstream input.</p>
+<blockquote><p>What would you improve about this artifact?
+What would make it better as a downstream input?
+Could another operator use this without reopening the whole problem?</p></blockquote>
+<p>This pattern is intentionally simple. It works for primitive kits, Implementation Plans, Explore findingss, Request Changess, Reviews, and Workflows. The goal is to train you to judge artifacts by operational usefulness rather than by surface completeness.</p>
+</section>
+<section class="chapter" id="student_start_here"><h1>Start Here: Student Follow-Along Guide</h1>
+<div class="objective"><strong>Your goal:</strong> Leave with seven small artifacts you can reuse at work: a primitive kit, Implementation Plan, Explore findings, Request Changes, Review, Workflow, and one Workflow retro.</div>
+<p>This workbook is the student version of the one-day intensive. It removes instructor-only delivery notes and turns the course into a practical follow-along reference. Keep the GitHub repository open while you read, because the examples, anti-patterns, pre-work, and commands are part of the exercise flow.</p>
+<div class="callout"><strong>Repository:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training">closedloop-ai/claude-code-expert-training</a><br/>
+<strong>Pre-work checklist:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-PREWORK-CHECKLIST.md">docs/ONE-DAY-PREWORK-CHECKLIST.md</a><br/>
+<strong>Setup lab:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/labs/00-no-speed-limits-setup-local-stack-bootstrap/LAB.md">labs/00-no-speed-limits-setup-local-stack-bootstrap/LAB.md</a><br/>
+<strong>Tool permissions examples:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/TOOL-PERMISSIONS-EXAMPLES.md">docs/TOOL-PERMISSIONS-EXAMPLES.md</a><br/>
+<strong>Demo artifacts index:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/tree/main/slides/demo-artifacts">slides/demo-artifacts/</a></div>
+<h2>How to use each module</h2>
+<ol><li>Read the framing and vocabulary before the live block starts.</li><li>Open the linked example and anti-pattern artifacts from the repo.</li><li>Build the named artifact for that block.</li><li>Use the critique prompt: <code>What would make this better as a downstream input?</code></li><li>Keep your final artifacts short enough for another operator to use without reopening the whole conversation.</li></ol>
+</section>
+<section class="chapter" id="module_1">
+<p class="module-kicker">Module 1 · Block 1 · 70 minutes</p>
+<h1>Build Claude Code Primitives</h1>
+<p class="chapter-summary">Claude Code becomes useful at team scale when engineers stop treating it as a single chat box and start treating it as a primitive build lab: a collection of tools, commands, skills, agents, subagents, plugins, execution modes, and model choices. This module teaches the primitive design judgment that keeps work small, explicit, and repeatable.</p>
+<div class="objective"><strong>Module outcome:</strong> You leave Module 1 with a Claude Code primitive kit: a safe tool posture, one custom command, one skill skeleton, one subagent, and one plugin decision note. The concept recap comes after the build, not before it.</div><div class="callout repo-links"><strong>Follow-along repo links:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md">Primitive framework</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/TOOL-PERMISSIONS-EXAMPLES.md">Tool and permissions examples</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/templates/skill-template.md">Skill template</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-01-primitive-kit-anti-pattern.md">Primitive anti-pattern to critique</a></div><div class="tryit"><h3>Hands-on: build the Claude Code primitive kit</h3><ol><li>Create a four-line tool posture: allowed reads, allowed shell commands, writes requiring approval, and dangerous actions that stay blocked.</li><li>Create a custom command at <code>.claude/commands/summarize-failing-test.md</code>.</li><li>Create a skill skeleton at <code>.claude/skills/flaky-test-investigation/SKILL.md</code> using the course template.</li><li>Create a subagent at <code>.claude/agents/history-investigator.md</code> or <code>.claude/agents/security-reviewer.md</code>.</li><li>Write a plugin decision note: not yet, team-local, or package later.</li><li>Peer review: could another operator use this kit without reopening the whole problem?</li></ol></div><div class="token-callout"><h3>Token-efficient operating habit</h3><p>Build the smallest useful abstraction. A direct prompt is cheaper than a skill, a skill is cheaper than an always-loaded rule, and a subagent is cheaper than polluting the main thread with broad exploration.</p></div>
+<h2>Why primitive design is the first skill</h2>
+<p>Most failed AI-assisted engineering sessions do not fail because the model is incapable. They fail because the work is routed to the wrong primitive. A developer asks for a broad implementation when the real need is investigation. A team writes a permanent rule into a one-off prompt. A repeated checklist stays trapped in someone’s memory instead of becoming an executable skill. A heavyweight model is used for cheap file discovery, while a complex design decision is handed to a fast model with insufficient reasoning depth.</p>
+<p>The first day of a Claude Code operating model therefore begins with vocabulary. Not vocabulary for its own sake, but vocabulary that gives the team a shared way to decide where work should live. Once the team can say “this is a command,” “this is a skill,” “this belongs in memory,” “this should be a subagent,” “this is a hook,” or “this needs a headless run,” the tool stops being mysterious and starts becoming an engineering system.</p>
+<h2>The primitive build lab</h2>
+<p>Think of Claude Code as a workbench with several surfaces. The interactive session is where a human and model negotiate a task. Tools are the model’s hands: reading files, running commands, searching repositories, editing code, and interacting with configured integrations. Commands are named entry points that standardize common activities. Skills package reusable procedures. Agents and subagents isolate specialized work. Plugins and marketplace content extend what is available across projects or organizations. Headless execution turns the same operating model into automation.</p>
+<p>The practical question is not “which feature is coolest?” The practical question is: <em>where should this work be represented so that another engineer can reuse it without rediscovering it?</em></p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Primitive</th>
+<th>Best use</th>
+<th>Team-scale signal</th>
+<th>Common mistake</th>
+</tr></thead><tbody>
+<tr><td>Prompt</td><td>One-off instruction, exploration, or clarification</td><td>Useful when the work is new, ambiguous, or conversational</td><td>Using prompts repeatedly for stable procedures</td></tr>
+<tr><td>Command</td><td>A named local action or workflow entry point</td><td>Useful when the same operation should start the same way every time</td><td>Packing too much reasoning policy into a command name</td></tr>
+<tr><td>Skill</td><td>A reusable procedure, checklist, transformation, or review pattern</td><td>Useful when a workflow should be invoked on demand and updated centrally</td><td>Putting always-needed facts in a skill instead of memory or project instructions</td></tr>
+<tr><td>Agent</td><td>A specialized role with its own instructions and tool boundaries</td><td>Useful when a class of work needs a consistent expert lens</td><td>Creating broad agents with vague responsibilities</td></tr>
+<tr><td>Subagent</td><td>Isolated investigation or parallel work unit</td><td>Useful when exploration would pollute the main context window</td><td>Letting broad file reads accumulate in the main conversation</td></tr>
+<tr><td>Tool</td><td>A capability the model calls: a built-in, a CLI binary run via Bash, or an MCP server’s tool</td><td>Useful when work needs real actions — run, read, search, call an API</td><td>Writing a “tool definition” for a CLI Claude could just run under permissions</td></tr>
+<tr><td>Hook</td><td>A shell command wired to a lifecycle event (PreToolUse, PostToolUse, Stop, and others)</td><td>Useful when a rule must run deterministically, not only when the model remembers</td><td>Using a hook for soft guidance that belongs in CLAUDE.md, or vice versa</td></tr>
+<tr><td>Plugin / marketplace package</td><td>Reusable bundle of the above — commands, skills, subagents, hooks, tools — distributed beyond one repo</td><td>Useful when teams need a shared, versioned extension point</td><td>Packaging before the workflow has stabilized</td></tr>
+<tr><td>Headless run</td><td>Non-interactive execution in CI, scripts, or automation</td><td>Useful when the work has clear inputs, outputs, and stop conditions</td><td>Automating work that still requires human judgment</td></tr>
+</tbody></table></div>
+<h2>Interactive versus headless work</h2>
+<p>Interactive mode is for discovery, negotiation, and judgment. A human can interrupt, correct assumptions, ask for alternatives, and decide whether the model’s next step is safe. Headless mode — Claude Code’s non-interactive <em>print mode</em>, invoked with <code>claude -p</code> (<code>--print</code>) — is for work that has already been bounded. It needs clear inputs, allowed tools, expected outputs, and stop conditions. If the task still requires a human to decide what the task is, it is not ready for headless execution.</p>
+<p>A good rule is this: <strong>interactive sessions produce artifacts; headless sessions consume artifacts.</strong> During a live session you might create an Implementation Plan, Explore findings, or Review. Once those artifacts are stable, a headless run can implement a bounded change, run a review, or generate a report from known inputs.</p>
+<div class="checkpoint"><strong>Checkpoint:</strong> Before automating a Claude Code workflow, ask whether another operator could execute it from the artifact alone. If the answer is no, the workflow is still too implicit.</div>
+<h2>Goal mode and debate mode</h2>
+<p>Two conversational modes matter today. Goal mode is useful when you want the model to drive toward a defined outcome. Debate mode is useful when you want the model to challenge a plan before code is written. Goal mode helps with forward motion; debate mode helps with error prevention. Both are most useful when paired with artifacts.</p>
+<p>For example, a developer might ask Claude to draft an Implementation Plan in goal mode. Once the brief exists, the developer can switch into a debate posture: “Challenge this brief. Identify hidden assumptions, underspecified acceptance criteria, and likely regression risks.” The output of the debate should not be a wandering conversation. It should be a better brief.</p>
+<h2>Model selection for the job</h2>
+<p>Model selection is part of work primitive design. Cheap, fast models are appropriate for bounded lookup, file discovery, and summarizing known material. Balanced models are appropriate for routine implementation and review. The strongest reasoning models are appropriate for architecture, tricky debugging, multi-file refactors, and decisions where a bad plan is more expensive than slower planning.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Job</th>
+<th>Preferred primitive design</th>
+<th>Why</th>
+</tr></thead><tbody>
+<tr><td>Find relevant files</td><td>Explore subagent on a fast model</td><td>Broad search stays out of the main context window</td></tr>
+<tr><td>Design a refactor</td><td>Strong reasoning model for planning, then balanced model for execution</td><td>The plan is the expensive part to get wrong</td></tr>
+<tr><td>Apply a known checklist</td><td>Skill or command</td><td>The procedure should be stable and repeatable</td></tr>
+<tr><td>Review a security-sensitive change</td><td>Specialized review agent with high effort</td><td>The lens and depth matter more than speed</td></tr>
+<tr><td>Generate a one-time explanation</td><td>Interactive prompt</td><td>The work is conversational and may not need persistence</td></tr>
+<tr><td>Run a recurring report</td><td>Headless workflow over a stable spec</td><td>The inputs, outputs, and schedule are known</td></tr>
+</tbody></table></div>
+<h2>Building the Claude Code primitive kit</h2>
+<p>The primitive kit is the first durable artifact of the day. It is the set of primitives you have actually crafted — a tool posture, a command, a skill, a subagent, and a plugin decision — each written down with explicit boundaries. Give every primitive a compact spec so another engineer can pick it up without guessing: what it does, which mode and model it runs in, what it needs as input, what it produces, and when it should stop. Keep the kit small enough to live in a repo, onboarding guide, or team operating doc, and concrete enough to describe the actual next version of the team’s workflow rather than an aspiration.</p>
+<p>Below is a real, working <code>code-review</code> plugin that bundles every primitive in one place. Use the dropdown to walk through each: the <strong>plugin</strong> manifest that ties them together, a <strong>command</strong>, a <strong>skill</strong>, a <strong>subagent</strong>, a <strong>hook</strong>, and a bundled <strong>tool</strong> (a CLI script). Edit any of them — the box turns green when the format is valid.</p>
+<p>It is one connected plugin, not six unrelated files: the <code>/review-pr</code> command runs the <code>pr-review</code> skill and delegates to the <code>pr-reviewer</code> subagent, which runs the <code>check-diff</code> tool and the <code>github</code> MCP server. That is how primitives stitch into a workflow. The layout mirrors a real plugin — <a href="https://github.com/closedloop-ai/claude-plugins/tree/main/plugins/code">closedloop-ai/claude-plugins/plugins/code</a>.</p>
+<p><strong>A note on tools:</strong> you rarely “define” a tool. Claude already uses its built-in tools and any CLI binary on your <code>PATH</code> — run via <code>Bash</code> under your permission rules — so it is usually smart enough to just use them. The two ways to extend the set are to <em>ship</em> a helper script in the plugin (like <code>check-diff.sh</code>) or to add an <strong>MCP server</strong>, which exposes entirely new tools.</p>
+<pre><code>Task: Review a PR for auth regressions
+Primitive: security-reviewer agent + /code-review command
+Mode: interactive for local development; headless only after the rule set is stable
+Model: balanced model for normal review, stronger reasoning for high-risk auth changes
+Inputs: diff, Implementation Plan, REVIEW.md, relevant auth rules
+Output: findings-first review with severity, evidence, and recommended fix
+Stop condition: no important findings or explicit residual risk accepted by human</code></pre>
+<h2>What good looks like</h2>
+<p>A good primitive kit has three qualities. First, it is specific. “Use Claude for coding” is not useful; “use an explorer subagent to identify files before reading them into the main session” is useful. Second, it is bounded. Each entry says what the primitive should and should not do. Third, it is teachable. A new engineer should be able to read the kit and make the same primitive design decision as a senior engineer most of the time.</p>
+<div class="exercise"><strong>Exercise:</strong> Pick five recurring engineering activities from your team. For each, decide whether it belongs as a prompt, command, skill, agent, subagent, plugin, or headless workflow. Then add the model choice, required input artifact, expected output artifact, and stop condition.</div>
+<h2>Anti-patterns</h2>
+<ul>
+<li><strong>The mega-prompt:</strong> A long prompt that mixes stable policy, one-time instructions, codebase facts, and a workflow checklist. Split it into memory, project instructions, skill, and task prompt.</li>
+<li><strong>The everything-agent:</strong> A custom agent named “senior engineer” that can do anything. Specialized agents should have a narrow lens, clear tools, and a predictable output shape.</li>
+<li><strong>Premature plugin packaging:</strong> A workflow is packaged before the team has run it enough times to know its inputs, failure modes, and stop conditions.</li>
+<li><strong>Headless ambiguity:</strong> A non-interactive run is launched with vague goals and no acceptance criteria. Headless work should consume a brief, not invent one.</li>
+</ul>
+<h2>From primitives to workflows</h2>
+<p>Crafting primitives is only half of Module 1. The other half is noticing that primitives are meant to be <em>stitched together</em>. A real task rarely uses one primitive in isolation: an explorer subagent finds the files, a command kicks off the change, a review agent checks the diff, a skill packages the verification. The sequence that connects them is a workflow — and Module 5 is where you design one deliberately.</p>
+<p>That immediately raises the question this course spends the rest of the day answering: once you can stitch primitives into a workflow, <strong>how do you tell that workflow what to accomplish?</strong> A workflow with no clear goal, no boundaries, and no definition of done will wander no matter how good its primitives are. That is exactly the problem Module 2 picks up.</p>
+<h2>Module recap</h2>
+<p>The foundation of effective Claude Code use is not prompt cleverness. It is primitive design discipline. Teams that craft the right primitives — and know how those primitives stitch into workflows — can preserve knowledge, reduce repeated prompting, avoid context-window waste, and turn successful sessions into reusable operating assets.</p>
+</section>
+<section class="chapter" id="module_2">
+<p class="module-kicker">Module 2 · Block 2 · 55 minutes</p>
+<h1>Planning and Context Management</h1>
+<p class="chapter-summary">Module 1 ended on a question: once you can stitch primitives into a workflow, how do you tell it what to accomplish? Planning is the answer. In Claude Code, planning is not a ceremonial step before coding — it is the act of shaping context so the next operator (human, model, agent, or headless workflow) can act without reopening the entire problem.</p>
+<div class="objective"><strong>Module outcome:</strong> You create an Implementation Plan with facts, assumptions, open questions, context map, bounded work packages, and acceptance criteria.</div><div class="callout repo-links"><strong>Follow-along repo links:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/one-day-intensive.md">One-day intensive source guide</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-LIVE-AGENDA.md">Live agenda</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-PREWORK-CHECKLIST.md">Pre-work checklist</a></div><div class="tryit"><h3>Hands-on: write an Implementation Plan</h3><ol><li>Choose a task.</li><li>Separate facts, assumptions, open questions, constraints, non-goals, and acceptance criteria.</li><li>Add a context map with file pointers and evidence commands.</li><li>Write a guided <code>/compact focusing on...</code> prompt.</li></ol></div><div class="token-callout"><h3>Token-efficient planning habit</h3><p>Every Implementation Plan should include a context budget: what must load, what can defer, what should delegate, what should not load, and what must survive compaction.</p></div>
+<h2>The plan is a compression artifact</h2>
+<p>Claude Code sessions can accumulate enormous context: pasted requirements, file contents, terminal output, attempted fixes, test failures, screenshots, and corrections from the human. Without deliberate compression, the session becomes expensive and fragile. The model is forced to infer what still matters from a long transcript. Humans are forced to remember why earlier decisions were made. Downstream operators inherit noise instead of a plan.</p>
+<p>A useful plan is not a transcript. It is a lossily compressed representation of the work. It preserves the facts, decisions, constraints, risks, and next actions that matter. It discards the conversational path that produced them. That is why this session treats planning as context management.</p>
+<h2>Separate facts, assumptions, and open questions</h2>
+<p>The simplest improvement to most AI coding sessions is to stop blending known facts with guesses. Models are very good at continuing a confident narrative. If the prompt says “the auth middleware probably owns refresh-token invalidation,” the model may proceed as if that is true. A disciplined brief separates evidence from inference.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Category</th>
+<th>Definition</th>
+<th>Example</th>
+<th>How to handle it</th>
+</tr></thead><tbody>
+<tr><td>Fact</td><td>A statement backed by direct evidence</td><td>`src/auth/middleware.ts` validates JWTs before route handlers run</td><td>Can be used directly in the plan</td></tr>
+<tr><td>Assumption</td><td>A plausible statement not yet proven</td><td>Refresh token invalidation is probably handled in the session store</td><td>Must be tested or called out as risk</td></tr>
+<tr><td>Open question</td><td>A decision or unknown that blocks confident execution</td><td>Should expired refresh tokens be deleted or retained for audit?</td><td>Resolve before implementation or explicitly defer</td></tr>
+<tr><td>Constraint</td><td>A boundary the solution must respect</td><td>Do not change public API response shape</td><td>Use as acceptance criteria and review rule</td></tr>
+</tbody></table></div>
+<div class="checkpoint"><strong>Checkpoint:</strong> Find the single most load-bearing assumption in your plan. If it turns out to be wrong, does the whole approach collapse? If so, verify it before writing code, not after.</div>
+<h2>The Implementation Plan</h2>
+<p>The Implementation Plan is the central planning artifact. It should fit on one or two pages, but it should be complete enough for another operator to execute. The brief is not just a summary. It is an instruction-bearing artifact with a clear contract: here is the problem, here is the known context, here are the boundaries, here is the proposed path, and here is how we will know whether the work is done.</p>
+<pre><code># Implementation Plan
+
+## Goal
+Implement refresh token rotation without changing the existing login response contract.
+
+## Known facts
+- JWT validation happens in src/auth/middleware.ts.
+- Session persistence is implemented in src/auth/session-store.ts.
+- Existing tests cover login success and expired access tokens.
+
+## Assumptions to verify
+- Old refresh tokens are not currently invalidated after rotation.
+- Token reuse should be treated as suspicious but not immediately lock the account.
+
+## Open questions
+- Should reuse detection emit an audit event?
+- Is token family tracking already present in the database schema?
+
+## Context map
+- Auth middleware: request validation and session lookup
+- Session store: token persistence and expiration
+- Test suite: integration tests under tests/auth/
+
+## Work packages
+1. Verify current token rotation behavior.
+2. Add invalidation logic or token-family tracking.
+3. Extend integration tests for old-token reuse.
+4. Produce Review.
+
+## Acceptance criteria
+- New refresh token is issued on rotation.
+- Previous refresh token cannot be reused.
+- Existing login response shape is unchanged.
+- Tests demonstrate success, expiration, and reuse behavior.</code></pre>
+<h2>Context maps</h2>
+<p>A context map tells the model where to look and why. It is not a full dump of file contents. It is a pointer layer: directories, files, functions, commands, external systems, and documents that are likely relevant. Good context maps reduce token use because Claude can read the right files in the right order instead of scanning the repository blindly.</p>
+<p>A context map should include both primary and secondary context. Primary context is required to make the change. Secondary context helps review risk, verify behavior, or understand why the system is shaped the way it is.</p>
+<pre><code>## Context map
+Primary:
+- src/auth/middleware.ts — request authentication boundary
+- src/auth/session-store.ts — refresh token persistence
+- db/schema.sql — session and token tables
+- tests/auth/refresh-token.test.ts — integration behavior
+
+Secondary:
+- docs/security/auth-model.md — intended auth posture
+- .claude/rules/api-security.md — project-specific security rules
+- recent PRs touching auth middleware — intent and regression context</code></pre>
+<h2>Debate review before coding</h2>
+<p>Before code is written, ask Claude to attack the plan. The goal is not to win the debate; the goal is to improve the artifact. A debate review should look for ambiguous goals, missing constraints, unsupported assumptions, hidden coupling, risky files, weak acceptance criteria, and likely regression paths.</p>
+<blockquote><p>Review this Implementation Plan as a skeptical senior engineer. Identify unsupported assumptions, missing context, and acceptance criteria that would fail to catch a regression. Do not implement. Return a revised brief outline and a list of questions that must be answered before coding.</p></blockquote>
+<p>The output of debate review should be folded back into the brief. If the debate produces useful insights that remain trapped in conversation history, the next operator still cannot use them. Artifact-first planning means the artifact is the durable memory.</p>
+<h2>What makes a plan reusable downstream?</h2>
+<p>A reusable plan has clear boundaries. It names the exact goal, the non-goals, the files likely involved, the evidence already gathered, the assumptions still open, and the stop condition. It also includes enough review criteria to prevent the model from declaring success too early.</p>
+<dl class="template-list">
+<dt>Goal</dt><dd>What outcome should exist after the work is complete?</dd>
+<dt>Non-goals</dt><dd>What tempting adjacent work should not be done?</dd>
+<dt>Facts</dt><dd>What has been directly observed?</dd>
+<dt>Assumptions</dt><dd>What might be true, but needs verification?</dd>
+<dt>Context map</dt><dd>Where should the next operator look first?</dd>
+<dt>Work packages</dt><dd>What are the smallest implementation units?</dd>
+<dt>Acceptance criteria</dt><dd>What evidence will prove the work is complete?</dd>
+<dt>Review focus</dt><dd>What risks should review emphasize?</dd>
+</dl>
+<div class="exercise"><strong>Exercise:</strong> Take a messy intake request from your team and compress it into an Implementation Plan. Then ask another participant whether they could execute it without reopening the original discussion. Any question they ask is either an open question or a missing fact.</div>
+<h2>Module recap</h2>
+<p>Planning in Claude Code is not about slowing down. It is about preserving momentum by producing a compact artifact that can survive compaction, handoff, review, and automation. The better the brief, the less the model has to infer and the easier it is for humans to hold the work accountable.</p>
+</section>
+<section class="chapter" id="module_3">
+<p class="module-kicker">Module 3 · Block 3 · 60 minutes</p>
+<h1>Intent Recovery and Dynamic Evidence</h1>
+<p class="chapter-summary">A plan tells the model what to do; this module makes sure the plan is built on <em>why</em> the code looks the way it does. When a codebase is old enough, the current code is rarely the whole story. You will recover intent from Git history, issues, PRs, logs, tests, command traces, and screenshots before asking Claude to change behavior.</p>
+<div class="objective"><strong>Module outcome:</strong> You create Explore findings and a Request Changes review that distinguish evidence from inference and make the next model turn more accurate.</div><div class="callout repo-links"><strong>Follow-along repo links:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-02-explore-findings-example.md">Explore findings example</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-02-request-changes-example.md">Request Changes example</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-02-explore-findings-anti-pattern.md">Explore findings anti-pattern</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-02-request-changes-anti-pattern.md">Request Changes anti-pattern</a></div><div class="tryit"><h3>Hands-on: produce Explore findings and a Request Changes review</h3><ol><li>Use at least two evidence types.</li><li>Label evidence, inference, and unknowns.</li><li>Rewrite weak feedback into expected vs actual, command output, file pointer, and next ask.</li></ol></div><div class="token-callout"><h3>Token-efficient investigation habit</h3><p>Do not paste the whole investigation trail. Compress it into evidence, inference, unknowns, and pointers to files, lines, commits, commands, or screenshots.</p></div>
+<h2>Find the why before the what</h2>
+<p>Claude can usually explain what code does from the current files. The harder question is why it does that. Was a strange branch added for a customer-specific edge case? Did a test encode a production incident? Was a confusing abstraction introduced to support a migration that has since finished? Current code often hides the reason for its own shape.</p>
+<p>Intent recovery is the discipline of gathering enough historical and runtime evidence to avoid undoing deliberate behavior. It is especially important when the requested change appears simple. Simple changes are dangerous when they cut across hidden intent.</p>
+<h2>Static code is not enough</h2>
+<p>Reading the current file gives one kind of evidence. Git history gives another. Tests reveal expected behavior. Issues and PRs reveal tradeoffs. Logs reveal runtime reality. Screenshots reveal UI states that code alone may not make obvious. CLI traces reveal exact failure modes. Documentation and MCP-backed systems can provide external context that is not stored in the repository.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Evidence source</th>
+<th>Question it answers</th>
+<th>Risk if omitted</th>
+</tr></thead><tbody>
+<tr><td>Current code</td><td>What does the system do now?</td><td>The model may miss hidden coupling outside the local file</td></tr>
+<tr><td>Git blame and commits</td><td>Why was this line introduced or changed?</td><td>The model may remove a deliberate workaround</td></tr>
+<tr><td>PR discussion</td><td>What tradeoffs were accepted?</td><td>The model may re-litigate settled decisions</td></tr>
+<tr><td>Issues / tickets</td><td>What user or incident motivated the behavior?</td><td>The model may solve the wrong problem</td></tr>
+<tr><td>Tests</td><td>What behavior is currently protected?</td><td>The model may pass local reasoning but break expected behavior</td></tr>
+<tr><td>Logs and traces</td><td>What happens in real executions?</td><td>The model may optimize for imagined behavior</td></tr>
+<tr><td>Screenshots</td><td>What does the user actually see?</td><td>The model may miss visual or state-machine issues</td></tr>
+<tr><td>Docs and runbooks</td><td>What standards should govern the change?</td><td>The model may violate team conventions</td></tr>
+</tbody></table></div>
+<h2>Evidence versus inference</h2>
+<p>A strong Explore findings labels evidence. It does not say “the bug is caused by stale cache” unless there is direct evidence. It says “the failure appears after the cache read path; logs show cache hit with outdated value; no write-through event appears in the trace; inference: stale cache is likely.” This distinction matters because the next model turn will use the memo as context. If guesses are written like facts, the model will build on them.</p>
+<pre><code># Explore Findings
+# Builds on the Module 2 Implementation Plan: "refresh token rotation".
+
+## Question
+Why is an old refresh token still accepted after rotation issues a new one?
+
+## Evidence gathered
+- Reproduces: pnpm test tests/auth/refresh-token.test.ts — old-token reuse returns 200, expected 401.
+- Server logs show the session store resolves the previous token after rotation.
+- Git history shows rotation added in PR #184 with no invalidation step.
+- src/auth/middleware.ts validates tokens but never deletes the prior record.
+
+## Inferences
+- Rotation issues a new token but does not invalidate the previous one.
+- Invalidation likely belongs in the session store, not the middleware.
+
+## Open questions
+- Where should the previous token be invalidated — session store or middleware?
+- Should reuse of an old token emit an audit event?
+
+## Recommended next step
+Trace refresh-token writes and invalidation in src/auth/session-store.ts before changing code.</code></pre>
+<div class="checkpoint"><strong>Checkpoint:</strong> Read your memo back and underline every sentence stated as fact. For each one, can you point to the command, line, or commit that proves it? Anything you cannot point to is an inference wearing a fact’s clothing — label it as such before the model builds on it.</div>
+<h2>Dynamic evidence sources</h2>
+<p>Dynamic evidence is information that changes with execution: logs, test runs, database state, browser behavior, CLI output, screenshots, observability traces, and external tool responses. It is powerful because it grounds the model in reality. It is also noisy. A good operator does not paste raw dynamic output indiscriminately. They capture the relevant excerpt, label how it was produced, and explain why it matters.</p>
+<p>When collecting dynamic evidence, include command provenance. The model should know not only the output, but the command, environment, timestamp or branch, and whether the result was reproducible.</p>
+<pre><code>Command: pnpm test tests/auth/refresh-token.test.ts --runInBand
+Branch: refresh-token-rotation
+Result: failed, 1 test
+Relevant output:
+  expected old refresh token reuse to return 401
+  received 200
+Interpretation:
+  Existing implementation issues a new refresh token but does not invalidate the previous token.</code></pre>
+<h2>Why “that didn’t work” fails as feedback</h2>
+<p>The phrase “that didn’t work” is almost useless to the model. It omits what was attempted, what was expected, what actually happened, what evidence was observed, and what changed between attempts. Good feedback is a bundle: action, expectation, observation, evidence, hypothesis, and next constraint.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Weak feedback</th>
+<th>Better feedback</th>
+</tr></thead><tbody>
+<tr><td>That did not work.</td><td>After applying the patch, `pnpm test tests/auth/refresh-token.test.ts` still fails. Expected old token reuse to return 401; actual response is 200. Relevant log shows session lookup succeeds for the old token. Focus next on invalidation in session-store, not middleware.</td></tr>
+<tr><td>The UI is broken.</td><td>Clicking Save leaves the modal open. Browser console shows no error. Network tab shows PATCH /settings returns 204. The likely issue is local modal state not closing after success.</td></tr>
+<tr><td>Try again.</td><td>Revise the approach without changing the public API response shape. Preserve existing success tests and add one regression test for duplicate submission.</td></tr>
+</tbody></table></div>
+<h2>The Request Changes pattern</h2>
+<p>A Request Changes review is a structured correction that improves the next model turn. It should be short, but it must contain enough evidence for the model to update its plan. Use it whenever Claude’s first implementation fails, when a test result contradicts an assumption, or when a human reviewer spots a gap.</p>
+<pre><code># Request Changes
+
+## Attempted change
+Added token rotation logic in src/auth/middleware.ts.
+
+## Expected result
+Old refresh token reuse should return 401.
+
+## Actual result
+Old refresh token reuse returns 200.
+
+## Evidence
+Test: pnpm test tests/auth/refresh-token.test.ts
+Failure: expected 401, received 200
+Trace: old token still resolves in session-store lookup.
+
+## Updated hypothesis
+Middleware is not the right layer for invalidation. The session store accepts both token records.
+
+## Next instruction
+Inspect session-store token persistence and invalidation. Do not change response shape.</code></pre>
+<h2>Module recap</h2>
+<p>Intent recovery prevents well-intentioned regressions. Dynamic evidence prevents hallucinated debugging. Request Changess convert failure into useful context. Together, they turn Claude Code from a code generator into an evidence-driven collaborator.</p>
+<div class="exercise"><strong>Exercise:</strong> Choose a bug or confusing behavior from the demo app. Produce a one-page Explore findings with at least three evidence sources and a Request Changes review that would help Claude recover from a failed first attempt.</div>
+</section>
+<section class="chapter" id="module_4">
+<p class="module-kicker">Module 4 · Block 4 · 60 minutes</p>
+<h1>Review, Test, and Verify</h1>
+<p class="chapter-summary">The work is not done when code changes. It is done when the diff has been reviewed against the plan, the verification evidence is explicit, and the residual risk is clear enough for a human to accept or reject.</p>
+<div class="objective"><strong>Module outcome:</strong> You produce a Review that makes findings, evidence, scope drift, regression risk, and PR-readiness explicit.</div><div class="callout repo-links"><strong>Follow-along repo links:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-03-review.md">Review</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-03-review-anti-pattern.md">Review anti-pattern</a></div><div class="tryit"><h3>Hands-on: build a Review</h3><ol><li>Review a diff against the plan.</li><li>Name scope drift and regression risk.</li><li>List verification evidence and what was not verified.</li><li>End with residual risk and PR handoff.</li></ol></div><div class="token-callout"><h3>Token-efficient review habit</h3><p>Review against the plan and the diff first. Expand only when a finding needs more context, and keep verification output to command, result, excerpt, and residual risk.</p></div>
+<h2>Review the diff against the plan</h2>
+<p>A Claude-assisted review should not ask “does this code look good?” That question is too broad and too subjective. The stronger question is: “does this diff satisfy the Implementation Plan without violating constraints or introducing unacceptable risk?” The brief becomes the review contract.</p>
+<p>Findings-first review means the reviewer leads with issues, not narrative. Each finding should state severity, evidence, affected file or behavior, why it matters, and a recommended fix. If there are no blocking findings, the review should still describe what was checked and what residual risk remains.</p>
+<pre><code># Review Finding
+
+Severity: Important
+Area: Refresh token invalidation
+Evidence: tests/auth/refresh-token.test.ts covers successful rotation but not reuse of the old token.
+Why it matters: The acceptance criteria require old refresh tokens to be rejected.
+Recommended fix: Add a regression test that attempts reuse of the previous token after rotation and expects 401.</code></pre>
+<h2>Scope drift</h2>
+<p>Scope drift is any change that is not required by the brief. Some drift is harmless cleanup. Some drift is dangerous because it changes behavior the team did not intend to change. Claude can drift when it sees adjacent improvements, especially if the prompt rewards broad helpfulness. Review must therefore compare the diff against explicit goals and non-goals.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Drift type</th>
+<th>Example</th>
+<th>Review response</th>
+</tr></thead><tbody>
+<tr><td>Benign cleanup</td><td>Renaming a local variable for clarity</td><td>Accept if low risk and local</td></tr>
+<tr><td>Adjacent refactor</td><td>Changing session-store interfaces while adding one token behavior</td><td>Challenge unless required by the brief</td></tr>
+<tr><td>Behavior expansion</td><td>Adding account lockout on token reuse when not requested</td><td>Reject or move to follow-up</td></tr>
+<tr><td>Contract change</td><td>Changing login response shape while implementing rotation</td><td>Block</td></tr>
+<tr><td>Test-only expansion</td><td>Adding regression tests for directly related edge cases</td><td>Usually accept</td></tr>
+</tbody></table></div>
+<h2>Testing is one gate, not the only gate</h2>
+<p>Passing tests are necessary evidence, but they are not proof of correctness. Tests only cover what they assert. A Review should include test results, manual checks when relevant, static review, diff review, command outputs, and residual risk. The point is not to create paperwork. The point is to prevent the phrase “tests pass” from hiding an unreviewed assumption.</p>
+<p>For LLM-assisted work, verification should also include provenance: what files changed, what commands were run, what evidence was observed, and what the model did not check. This gives the human reviewer a clear map of confidence and uncertainty.</p>
+<div class="checkpoint"><strong>Checkpoint:</strong> When the model says “tests pass,” ask what the tests do not cover. A green suite proves the asserted behavior, not the absent assertion. Name one thing that could break that no current test would catch.</div>
+<h2>The Review</h2>
+<pre><code># Review
+
+## Plan alignment
+Goal: Refresh token rotation rejects old token reuse.
+Status: Implemented and tested.
+
+## Changed files
+- src/auth/session-store.ts — invalidates previous refresh token on rotation
+- tests/auth/refresh-token.test.ts — adds old-token reuse regression test
+
+## Evidence
+- pnpm test tests/auth/refresh-token.test.ts — passed
+- pnpm test tests/auth/login.test.ts — passed
+- Manual API check: old refresh token returns 401 after rotation
+
+## Scope review
+No public response contract changes observed.
+No unrelated auth routes modified.
+
+## Residual risk
+Database cleanup of invalidated token records is not addressed. Existing retention behavior remains unchanged.
+
+## PR handoff note
+Reviewer should focus on token-store concurrency and whether invalidated token retention meets audit expectations.</code></pre>
+<h2>Regression risk</h2>
+<p>Regression risk is not just the probability that something breaks. It is the product of likelihood, blast radius, and detectability. A small likelihood with a huge blast radius still deserves attention. A likely bug with easy rollback may be acceptable if the release path is safe. Claude can help enumerate risks, but the team must decide what risk is acceptable.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Risk question</th>
+<th>Why it matters</th>
+</tr></thead><tbody>
+<tr><td>What user-visible behavior changed?</td><td>Identifies blast radius</td></tr>
+<tr><td>What existing tests protect this path?</td><td>Identifies current safety net</td></tr>
+<tr><td>What did we not test?</td><td>Prevents false confidence</td></tr>
+<tr><td>What external systems depend on this behavior?</td><td>Finds hidden contracts</td></tr>
+<tr><td>How would we detect failure in production?</td><td>Separates known risk from invisible risk</td></tr>
+<tr><td>How would we roll back?</td><td>Determines operational readiness</td></tr>
+</tbody></table></div>
+<h2>What makes a handoff PR-ready?</h2>
+<p>A PR-ready handoff gives the reviewer the shortest path to an informed decision. It should contain the problem statement, brief link or summary, changed files, review focus, verification evidence, known non-goals, and residual risk. The reviewer should not need to reconstruct the story from chat history.</p>
+<div class="aside"><span class="smallcaps">PR-ready handoff formula</span><p><strong>Problem → Approach → Changed files → Verification → Review focus → Residual risk.</strong> If any of those pieces is missing, the PR is not fully handoff-ready.</p></div>
+<h2>Module recap</h2>
+<p>Review and verification discipline turns model output into engineering evidence. The goal is not to make Claude “sound confident.” The goal is to make the work auditable: what changed, why it changed, how it was checked, and what remains uncertain.</p>
+<div class="exercise"><strong>Exercise:</strong> Review a provided diff or demo artifact against its Implementation Plan. Produce three findings if problems exist; otherwise produce a Review and residual-risk note that would be acceptable in a PR description.</div>
+</section>
+<section class="chapter" id="module_5">
+<p class="module-kicker">Module 5 · Block 5 · 45 minutes</p>
+<h1>Workflow Design and Minimal Improvement Loop</h1>
+<p class="chapter-summary">Module 1 introduced workflows as the way to stitch primitives together; this is where you design one deliberately. The session closes by turning the day’s isolated practices into a single named workflow — with handoffs, gates, stop conditions, and one lightweight Workflow retro — so the next run can improve without expanding into a full operating-system redesign.</p>
+<div class="objective"><strong>Module outcome:</strong> You leave with a Workflow and one credible next-run improvement checklist or metric.</div><div class="callout repo-links"><strong>Follow-along repo links:</strong> <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-04-workflow-retro.md">Operating-system Workflow retro</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-04-workflow-retro-anti-pattern.md">Workflow Retro anti-pattern</a> · <a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/README.md">Demo artifacts index</a></div><div class="tryit"><h3>Hands-on: design one workflow</h3><ol><li>Name the workflow trigger and roles.</li><li>Define artifact handoffs, gates, and stop conditions.</li><li>Choose which parts are commands, skills, agents, or human review.</li><li>Add one next-run improvement.</li></ol></div><div class="token-callout"><h3>Token-efficient workflow habit</h3><p>Each agent handoff should define what context crosses the boundary, what stays behind, and where compaction happens before the next phase.</p></div>
+<h2>From good sessions to repeatable workflows</h2>
+<p>A strong Claude Code session can still be a dead end if the team cannot repeat it. Workflow design captures the sequence that made the session successful: how the work was framed, what artifacts were produced, which agents or skills were used, where human review occurred, and what evidence counted as done. The workflow does not need to be elaborate. It needs to be named, bounded, and reusable. A named workflow is an asset: you run it again next week, apply it to the next project, and hand it to a new teammate without re-teaching the whole system. That is leverage that compounds.</p>
+<p>This module is intentionally compact. The goal is not to design a full engineering operating system — it is to leave with one workflow you can try next week and improve after one run.</p>
+<h2>A compact multi-agent workflow</h2>
+<p>Multi-agent workflow design should begin with work boundaries, not agent names. Each agent or subagent should own a distinct lens or phase. If two agents need the same broad context and produce overlapping output, the workflow is probably not decomposed well.</p>
+<pre><code># Workflow
+
+Name: Evidence-first bug fix
+
+Trigger:
+A bug report has enough detail to reproduce or investigate.
+
+Artifacts:
+1. Explore findings
+2. Compact Implementation Plan
+3. Implementation diff
+4. Review
+
+Roles:
+- Explorer subagent: identify relevant files, history, and evidence sources
+- Planner: compress evidence into Implementation Plan
+- Implementer: make bounded code changes from the brief
+- Reviewer: compare diff against brief and produce findings
+
+Gates:
+- Do not implement until facts, assumptions, and open questions are separated.
+- Do not review until acceptance criteria are explicit.
+- Do not hand off until verification evidence and residual risk are written.
+
+Stop condition:
+The change is PR-ready or blocked by a named open question.</code></pre>
+<h2>Handoffs</h2>
+<p>A handoff is where one operator’s output becomes another operator’s input. In Claude Code workflows, handoffs should be artifact-based. The explorer hands off Explore findings. The planner hands off an Implementation Plan. The implementer hands off a diff plus notes. The reviewer hands off findings and verification evidence. If a handoff requires the next operator to read the entire chat transcript, the handoff failed.</p>
+<div class="table-wrap"><table class="data-table"><thead><tr>
+<th>Handoff</th>
+<th>Input</th>
+<th>Output</th>
+<th>Quality bar</th>
+</tr></thead><tbody>
+<tr><td>Investigation → Planning</td><td>Evidence, traces, history, open questions</td><td>Implementation Plan</td><td>Facts and assumptions are separated</td></tr>
+<tr><td>Planning → Implementation</td><td>Implementation Plan and context map</td><td>Bounded diff</td><td>Non-goals and acceptance criteria are respected</td></tr>
+<tr><td>Implementation → Review</td><td>Diff and brief</td><td>Findings or approval with residual risk</td><td>Review is evidence-based</td></tr>
+<tr><td>Review → Handoff</td><td>Findings, fixes, verification commands</td><td>PR-ready packet</td><td>Reviewer can decide without chat history</td></tr>
+</tbody></table></div>
+<h2>Gates and stop conditions</h2>
+<p>Gates prevent premature motion. Stop conditions prevent infinite motion. A gate says what must be true before the workflow can advance. A stop condition says when the workflow is complete, blocked, or unsafe to continue. Claude workflows need both because models tend to continue helping unless told what “done” means.</p>
+<p>Good gates are observable. “Make sure the plan is good” is not a gate. “The brief includes goal, non-goals, facts, assumptions, open questions, context map, work packages, and acceptance criteria” is a gate. Good stop conditions are explicit. “Continue until fixed” is vague. “Stop when the Review shows the acceptance criteria pass, or when an open question blocks safe implementation” is actionable.</p>
+<div class="checkpoint"><strong>Checkpoint:</strong> Look at each gate in your workflow and ask whether a new teammate could tell, without you, whether it has been met. If a gate needs your judgment to evaluate, it is a preference, not a gate — rewrite it as something observable.</div>
+<h2>One lightweight Workflow retro</h2>
+<p>The improvement loop should be small enough that the team actually uses it. Pick one Workflow retro that can be completed after a workflow run in five minutes. The Workflow retro should measure the workflow, not the model’s personality. It should ask whether artifacts were reusable, whether evidence was sufficient, whether context was controlled, whether review caught issues, and what should change next run.</p>
+<pre><code># Workflow Retro
+
+Workflow name:
+Date:
+Task:
+
+1. Was the Implementation Plan usable without reopening the original conversation? 0 / 1 / 2
+2. Did the Explore findings separate evidence from inference? 0 / 1 / 2
+3. Did the implementation stay inside the stated scope? 0 / 1 / 2
+4. Did verification include more than passing tests? 0 / 1 / 2
+5. Was residual risk explicit? 0 / 1 / 2
+
+One thing to keep:
+One thing to change next run:
+One artifact or rule to update:</code></pre>
+<h2>What to improve on the next run</h2>
+<p>Do not try to improve everything after the first run. Choose one improvement. Maybe the context map was too vague. Maybe the review agent needs a narrower rubric. Maybe the Implementation Plan omitted non-goals. Maybe verification evidence was too thin. The Workflow retro turns that observation into a small change: update a template, add a rule, refine a skill, or adjust a gate.</p>
+<h2>Closing synthesis</h2>
+<p>The five modules form one loop. Craft the right primitives. Compress the plan. Recover intent with evidence. Review against the plan. Preserve the workflow that worked. That loop is small enough to teach in a day and strong enough to become the foundation for team-scale Claude Code adoption. The payoff is not abstract: less rework, faster shipping, and a library of reusable assets that make every future run cheaper and more reliable.</p>
+<div class="exercise"><strong>Exercise:</strong> Name one workflow your team will run in the next week. Fill out the Workflow, define at least three gates, and choose one Workflow retro question that will determine what you improve after the first run.</div>
+</section>
+<section class="chapter" id="student_resources"><h1>Appendix: Student Desk Reference and Repo Links</h1>
+<div class="objective"><strong>Use this as your one-page desk reference:</strong> durable facts go in <code>CLAUDE.md</code>; repeatable procedures become skills or workflows; broad exploration goes to subagents; PR handoffs require evidence.</div>
+<h2>Core commands and settings</h2>
+<div class="table-wrap"><table class="data-table"><thead><tr><th>Area</th><th>Use this</th><th>When it matters</th></tr></thead><tbody>
+<tr><td>Setup and health</td><td><code>/doctor</code>, <code>claude --safe-mode</code>, <code>CLAUDE_CODE_SAFE_MODE=1</code></td><td>Validate install health or troubleshoot by disabling customizations.</td></tr>
+<tr><td>Memory and context</td><td><code>CLAUDE.md</code>, <code>@docs/file.md</code>, <code>.claude/rules/*.md</code>, <code>/memory</code>, <code>/compact focusing on ...</code>, <code>/clear</code></td><td>Make important context durable, modular, scoped, inspectable, and cheap to carry forward.</td></tr>
+<tr><td>Model selection</td><td><code>/model</code>, <code>/model opusplan</code>, <code>/effort low|medium|high|xhigh|max</code>, <code>/fast</code>, <code>fallbackModel</code>, <code>--fallback-model</code></td><td>Use deeper reasoning where mistakes are expensive; use faster/cheaper paths for bounded work.</td></tr>
+<tr><td>Delegation</td><td><code>/agents</code>, <code>claude agents</code>, project <code>.claude/agents/</code>, background subagents</td><td>Keep broad exploration isolated and return concise findings to the main session.</td></tr>
+<tr><td>Review and cleanup</td><td><code>/code-review high</code>, <code>/code-review --fix</code>, <code>/simplify</code>, <code>REVIEW.md</code></td><td>Review against the plan, make risk explicit, and clean up before handoff.</td></tr>
+<tr><td>Governance</td><td><code>availableModels</code>, <code>enforceAvailableModels</code>, <code>requiredMinimumVersion</code>, <code>Tool(specifier)</code> permission rules, <code>disableBundledSkills</code></td><td>Keep teams on approved models, versions, tools, and extension surfaces.</td></tr>
+</tbody></table></div>
+<h2>Context pointers</h2>
+<ul><li>Search before reading: use grep/file search to find paths and line numbers first.</li><li>Read narrowly: use offsets and limits instead of loading entire files.</li><li>Label evidence: command run, source, timestamp, relevant excerpt, and why it matters.</li><li>Separate facts, assumptions, open questions, and inferences.</li><li>Compact between tasks and tell compaction what to preserve.</li></ul>
+<h2>Primary repo links</h2>
+<ul><li><a href="https://github.com/closedloop-ai/claude-code-expert-training">Training repository root</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/one-day-intensive.md">One-day intensive presentation guide</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-LIVE-AGENDA.md">One-day live agenda</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/tree/main/slides/demo-artifacts">Demo artifacts and anti-patterns</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md">Plugins, skills, commands, and models</a></li><li><a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">Claude Code changelog</a></li></ul>
+</section>
+<section class="chapter" id="concrete_examples"><h1>Concrete Examples, File Locations, and Repo Links</h1>
+<div class="objective"><strong>Use this section while practicing:</strong> each reusable Claude Code concept below includes the location where you would store it in a project and a repo link that backs the concept here.</div>
+<h2>Tools and permissions</h2>
+<p>Tools are the model action surface: reading, searching, editing, running commands, fetching context, and calling integrations. The course examples emphasize matching tool access to task risk rather than allowing everything by default.</p>
+<div class="resource-grid">
+<div class="resource-card"><h3>Course backing doc</h3><p><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/TOOL-PERMISSIONS-EXAMPLES.md">docs/TOOL-PERMISSIONS-EXAMPLES.md</a></p><p>Safe exploration, controlled implementation, shared repo guardrails, and workflow-specific permission posture.</p></div>
+<div class="resource-card"><h3>Where this lives</h3><p><code>settings.json</code>, managed settings, permission dialogs, MCP/plugin policies, and task-specific approval choices.</p><p>Permission rules use the <code>Tool(specifier)</code> form, for example <code>Bash(npm run test:*)</code> or <code>WebFetch(domain:example.com)</code>.</p></div>
+</div>
+<pre><code>Permission prompt pattern:
+What must Claude read?
+What may Claude write?
+What requires approval?
+What would be dangerous if Claude guessed?
+What evidence is required before widening permissions?</code></pre>
+<div class="tryit"><h3>Try it</h3><ol><li>Choose one live task.</li><li>Write allowed reads, allowed writes, and approval-required actions.</li><li>Compare your posture to the safe exploration and controlled implementation examples.</li></ol></div>
+<h2>Commands</h2>
+<p>Commands are for short, prompt-shaped, directly invoked operations. Use them when the behavior repeats but does not need a full method, bundled assets, or a specialist role.</p>
+<div class="resource-grid">
+<div class="resource-card"><h3>Course backing doc</h3><p><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md">docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md</a></p><p>Includes command examples such as <code>/review-pr-risk</code>, <code>/summarize-failing-test</code>, and <code>/draft-pr-body</code>.</p></div>
+<div class="resource-card"><h3>Where this lives</h3><p>Common project pattern: <code>.claude/commands/&lt;name&gt;.md</code>.</p><p>Built-ins appear in the slash menu, such as <code>/model</code>, <code>/agents</code>, <code>/mcp</code>, <code>/permissions</code>, and <code>/compact</code>.</p></div>
+</div>
+<pre><code># .claude/commands/summarize-failing-test.md
+Summarize the failing test evidence in this shape:
+1. Command run
+2. First failing assertion or error line
+3. Relevant file and line pointer
+4. Likely failure category
+5. Next narrow read or command
+
+Do not propose a fix until the failure category is grounded in evidence.</code></pre>
+<h2>Skills</h2>
+<p>Skills are for repeatable methods with structure: required inputs, context gathering, workflow, output artifact, verification checklist, and safety rules.</p>
+<div class="resource-grid">
+<div class="resource-card"><h3>Skill starter template</h3><p><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/templates/skill-template.md">templates/skill-template.md</a></p><p>The template defines the minimum sections students should fill in for a first-pass skill.</p></div>
+<div class="resource-card"><h3>Where this lives</h3><p>Common project pattern: <code>.claude/skills/&lt;skill-name&gt;/SKILL.md</code>.</p><p>Use skills for procedures and reusable artifact production, not always-on project facts.</p></div>
+</div>
+<pre><code># .claude/skills/flaky-test-investigation/SKILL.md
+# Skill: flaky-test-investigation
+
+## Purpose
+Investigate a flaky test using evidence before proposing a fix.
+
+## Required inputs
+- failing command
+- test name or file
+- relevant CI/local output
+
+## Workflow
+1. Capture exact command and failure excerpt
+2. Classify the failure mode
+3. Identify dynamic evidence needed
+4. Produce Explore findings
+5. Propose the next narrow action
+
+## Outputs
+Explore findings with evidence, inference, and next step.</code></pre>
+<h2>Agents and subagents</h2>
+<p>Agents and subagents are bounded workers with a mission, explicit tools, output shape, and stop condition. Use them when you need separate context or specialist review.</p>
+<div class="resource-grid">
+<div class="resource-card"><h3>Course backing doc</h3><p><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md">docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md</a></p><p>Defines agent and subagent usage, including context isolation and bounded missions.</p></div>
+<div class="resource-card"><h3>Where this lives</h3><p>Common project pattern: <code>.claude/agents/&lt;agent-name&gt;.md</code>.</p><p>Use <code>/agents</code> or <code>claude agents</code> to manage sessions where supported.</p></div>
+</div>
+<pre><code># .claude/agents/security-reviewer.md
+---
+name: security-reviewer
+description: Review code changes for security vulnerabilities. Use proactively.
+tools: Read, Grep, Glob, Bash
+model: sonnet
+maxTurns: 10
+---
+
+You are a security specialist. For every code change:
+1. Check for injection vulnerabilities
+2. Verify input validation at system boundaries
+3. Check for exposed secrets or API keys
+4. Verify authentication and authorization checks
+
+Report findings by severity. Do not edit files unless explicitly asked.</code></pre>
+<h2>Plugins and marketplace evaluation</h2>
+<p>Plugins are a distribution abstraction. A plugin can package multiple reusable units such as commands, subagents, MCP servers, hooks, skills, or workflow assets. Evaluate a plugin like dependency surface area, not like a shortcut.</p>
+<div class="resource-grid">
+<div class="resource-card"><h3>Course backing doc</h3><p><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md#marketplace-evaluation-checklist">Marketplace evaluation checklist</a></p><p>Use the checklist before installing or promoting a package.</p></div>
+<div class="resource-card"><h3>Where this appears</h3><p>Use <code>/plugin</code> flows and <code>/plugin list</code> where available.</p><p>Prefer local commands or skills when the behavior is still small or unstable.</p></div>
+</div>
+<h2>Demo artifacts and anti-patterns</h2>
+<div class="table-wrap"><table class="data-table compact-table"><thead><tr><th>Module</th><th>Good example</th><th>Anti-pattern</th></tr></thead><tbody>
+<tr><td>Operating surface</td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md">Primitive framework and examples</a></td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-01-primitive-kit-anti-pattern.md">Primitive kit anti-pattern</a></td></tr>
+<tr><td>Investigation</td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-02-explore-findings-example.md">Explore findings</a></td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-02-explore-findings-anti-pattern.md">Explore findings anti-pattern</a></td></tr>
+<tr><td>Feedback</td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-02-request-changes-example.md">Request Changes</a></td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-02-request-changes-anti-pattern.md">Request Changes anti-pattern</a></td></tr>
+<tr><td>Review</td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-03-review.md">Review</a></td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-03-review-anti-pattern.md">Review anti-pattern</a></td></tr>
+<tr><td>Workflow</td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-04-workflow-retro.md">Operating Workflow retro</a></td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/anti-patterns/day-04-workflow-retro-anti-pattern.md">Workflow Retro anti-pattern</a></td></tr>
+</tbody></table></div>
+<h2>Setup and supporting files</h2>
+<ul><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/labs/00-no-speed-limits-setup-local-stack-bootstrap/LAB.md">Lab 00 setup</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-PREWORK-CHECKLIST.md">One-day prework checklist</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-LIVE-AGENDA.md">One-day live agenda</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/one-day-intensive.md">One-day intensive presentation guide</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/tree/main/slides/demo-artifacts">Demo artifacts directory</a></li><li><a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">Latest Claude Code changelog</a></li></ul>
+</section>
+<section class="chapter" id="token_efficiency">
+<h1>Token Efficiency Throughout the Course</h1>
+<div class="objective"><strong>Student goal:</strong> Learn to spend context where it changes the outcome, not where it merely makes the session feel busy.</div>
+<p>Token efficiency is not a separate optimization topic. It is the connective tissue across primitive design, planning, investigation, review, and workflow design — and it is money: tokens are cost and context is speed, so disciplined context means lower cost-to-serve and more work shipped per hour. The habits below should show up in every exercise.</p>
+<div class="token-grid"><div class="token-card"><h3>Route narrowly</h3><p>Start with the smallest useful abstraction: direct prompt, command, skill, subagent, agent, then plugin only when the reuse unit truly deserves packaging.</p></div><div class="token-card"><h3>Search before read</h3><p>Use file lists, grep results, line ranges, and exact excerpts before asking Claude to ingest full files or logs.</p></div><div class="token-card"><h3>Delegate exploration</h3><p>Broad search belongs in a subagent with isolated context and bounded output: finding, pointer, confidence, and next action.</p></div><div class="token-card"><h3>Compact between phases</h3><p>Use guided <code>/compact</code> after planning, investigation, or review so decisions survive while exploration noise falls away.</p></div></div>
+<h2>Module-by-module token habits</h2>
+<div class="table-wrap"><table class="data-table compact-table"><thead><tr><th>Module</th><th>Token-efficient behavior</th><th>Student artifact</th></tr></thead><tbody><tr><td>Primitive Build Lab</td><td>Choose the smallest primitive that controls context and reuse.</td><td>Primitive kit with primitive, permissions, model, output, stop condition.</td></tr><tr><td>Planning</td><td>Add a context budget: must load, can defer, delegate, do not load, preserve.</td><td>Compact Implementation Plan with context map.</td></tr><tr><td>Investigation</td><td>Compress evidence into claims with source pointers instead of transcripts.</td><td>Explore findings and Request Changes.</td></tr><tr><td>Review</td><td>Review the diff against the plan before expanding context.</td><td>Findings-first Review.</td></tr><tr><td>Workflow</td><td>Put context gates between roles and agents.</td><td>Workflow with handoff limits and compaction points.</td></tr></tbody></table></div>
+<h2>Token-efficient prompt patterns</h2>
+<pre><code>Search first. Return only matching file paths and line numbers. Do not read full files yet.
+
+Read only &lt;file&gt; lines &lt;start&gt;-&lt;end&gt;. Summarize the relevance in 3 bullets.
+
+Delegate to a subagent. Return only: finding, evidence pointer, confidence, next action. Limit to 10 bullets.
+
+/compact focusing on decisions made, evidence pointers, files touched, unresolved questions, and residual risk.
+
+Review this diff against the compact plan. Return findings only with severity, file pointer, and suggested next action.</code></pre>
+<div class="tryit"><h3>Hands-on: token budget your current task</h3><ol><li>Write what Claude must load.</li><li>Write what can be deferred.</li><li>Write what should be delegated to a subagent.</li><li>Write what should not be loaded.</li><li>Write what must survive compaction.</li></ol></div>
+</section>
+<section class="chapter" id="reader_alignment"><h1>Alignment With the 15-Minute Modules</h1>
+<div class="objective"><strong>Tone and stance:</strong> The short reader modules are practical, operational, and opinionated. They do not teach Claude Code as feature trivia. They teach reusable engineering leverage: better context, lower token burn, and better first-pass code.</div>
+<h2>Three ideas worth carrying through the whole day</h2>
+<div class="tone-grid"><div class="tone-card"><h3>Give Claude better context</h3><p>Persistent memory, targeted rules, subagent delegation, and guided compaction reduce repeated instructions and keep the session focused.</p></div><div class="tone-card"><h3>Burn fewer tokens for more impact</h3><p>Use RTK, pointers, search-before-read, skills, and compaction so the team spends context where it changes the outcome.</p></div><div class="tone-card"><h3>Land better code the first time</h3><p>Route by model, effort, speed mode, and review mechanism. Treat <code>/code-review</code>, <code>/simplify</code>, and <code>REVIEW.md</code> as quality controls.</p></div><div class="tone-card"><h3>Standardize the patterns</h3><p>The organizational win comes from encoding good behavior in <code>CLAUDE.md</code>, <code>REVIEW.md</code>, commands, skills, agents, hooks, and workflow artifacts.</p></div></div>
+<h2>Coverage checklist</h2>
+<div class="table-wrap"><table class="data-table check-table"><thead><tr><th>Reader point</th><th>Student-facing follow-along action</th><th>Concrete backing</th></tr></thead><tbody>
+<tr><td>Memory layers</td><td>Decide what belongs in managed, user, project, and local memory.</td><td><code>CLAUDE.md</code>, <code>~/.claude/CLAUDE.md</code>, <code>CLAUDE.local.md</code></td></tr>
+<tr><td>Auto-memory</td><td>Write one durable correction Claude should not need to be told again.</td><td><code>/memory</code> and readable markdown memory files</td></tr>
+<tr><td>Path-scoped rules</td><td>Draft one rule that should load only for a file path pattern.</td><td><code>.claude/rules/*.md</code></td></tr>
+<tr><td>@ imports</td><td>Plan one shared standard that should be imported instead of pasted.</td><td><code>@docs/coding-standards.md</code></td></tr>
+<tr><td>Subagents</td><td>Delegate a broad search and return only findings, pointers, confidence, and next action.</td><td><code>.claude/agents/*.md</code>, <code>/agents</code></td></tr>
+<tr><td>Custom agents</td><td>Review a named specialist with frontmatter, tools, model, max turns, and severity output.</td><td>Security reviewer example in the deck</td></tr>
+<tr><td>Guided compaction</td><td>Write a <code>/compact focusing on...</code> prompt after a phase boundary.</td><td><code>/compact</code> vs <code>/clear</code></td></tr>
+<tr><td>RTK and measurement</td><td>Name noisy commands worth compressing and how savings would be measured.</td><td><code>rtk gain</code>, <code>rtk gain --history</code>, <code>rtk discover</code></td></tr>
+<tr><td>Pointers over full text</td><td>Replace one long file/log dump with path, line range, exact excerpt, and next command.</td><td>Search-before-read exercise</td></tr>
+<tr><td>Skills</td><td>Promote one repeated prompt into a skill with inputs, workflow, outputs, verification, safety.</td><td><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/templates/skill-template.md">templates/skill-template.md</a></td></tr>
+<tr><td>Model selection</td><td>Choose model and effort by job, not habit.</td><td><code>/model</code>, <code>/model opusplan</code>, <code>/effort</code></td></tr>
+<tr><td>Fast mode</td><td>Name one situation where latency is worth the per-token tradeoff.</td><td><code>/fast</code></td></tr>
+<tr><td>Review and simplify</td><td>Run correctness review before cleanup, then verify residual risk.</td><td><code>/code-review</code>, <code>/code-review --fix</code>, <code>/simplify</code>, <code>REVIEW.md</code></td></tr>
+<tr><td>Multi-model workflow</td><td>Plan, implement, explore, review, simplify, and fast-iterate using the right control for each phase.</td><td>Workflow design module and desk reference</td></tr>
+</tbody></table></div>
+<h2>Concrete examples to keep open</h2>
+<ul><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md">Primitive framework: plugins, skills, commands, agents, and model selection</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/TOOL-PERMISSIONS-EXAMPLES.md">Tool and permissions examples</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/templates/skill-template.md">Skill template</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/PLUGINS-SKILLS-COMMANDS-AND-MODELS.md">Primitive framework and examples</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-02-explore-findings-example.md">Explore findings example</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-03-review.md">Review example</a></li><li><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/slides/demo-artifacts/day-04-workflow-retro.md">Workflow Workflow retro example</a></li></ul>
+</section>
+
+<section class="chapter" id="token_savings_field_guide">
+<h1>Token Savings Field Guide</h1>
+<div class="objective"><strong>Student goal:</strong> Use token efficiency as an engineering operating habit: search first, point precisely, delegate noisy work, compact at phase boundaries, and turn repeated work into reusable artifacts.</div>
+<p>Token savings are not about making Claude think less. They are about keeping the context window focused on the material that changes the outcome. The tips below should show up during every module, not only during the token-efficiency portion of the day.</p>
+<h2>1. Enable RTK for noisy command output</h2>
+<p>RTK is useful when shell output is large, repetitive, or noisy. The impact compounds because command output does not just cost tokens once; it remains in the session and can be re-read on later turns.</p>
+<pre><code>rtk gain              # cumulative token savings this session
+rtk gain --history    # per-command breakdown with savings
+rtk discover          # find missed compression opportunities
+
+Good RTK targets:
+- test output
+- build logs
+- git status and diff noise
+- package manager output
+- long formatter or type-checker traces</code></pre>
+<div class="callout"><strong>Practice habit:</strong> If a command regularly emits hundreds or thousands of lines, compress it, script it, or summarize it before it enters the main Claude context.</div>
+<h2>2. Move repeated tasks to executable scripts</h2>
+<p>Repeated prompts are expensive because they require the user to re-describe a workflow and require Claude to re-infer what should happen. A stable script is cheaper and more reliable.</p>
+<div class="table-wrap"><table class="data-table compact-table"><thead><tr><th>Repeated prompt pattern</th><th>Token-efficient replacement</th></tr></thead><tbody>
+<tr><td>“Run the usual checks.”</td><td><code>scripts/check-pr-ready.sh</code> or <code>npm run check:pr</code></td></tr>
+<tr><td>“Do the full release validation we always do.”</td><td><code>scripts/release-validate.sh</code> plus a skill that explains when to use it.</td></tr>
+<tr><td>“Look for the standard security issues.”</td><td>A security-reviewer subagent plus a compact severity output contract.</td></tr>
+<tr><td>“Please remember our migration checklist.”</td><td>A skill or command checked into the repo, with verification and safety rules.</td></tr>
+</tbody></table></div>
+<pre><code># Example: scripts/check-pr-ready.sh
+#!/usr/bin/env bash
+set -euo pipefail
+npm run lint
+npm run typecheck
+npm test
+git status --short
+
+# Prompt Claude:
+# Run scripts/check-pr-ready.sh and summarize only failures,
+# evidence pointers, and the next command to run.</code></pre>
+<h2>3. Do not say “explore” without intention</h2>
+<p>Broad words such as “explore,” “look around,” “understand this,” or “check the repo” often cause broad reads. That may be appropriate for onboarding, but it should be intentional.</p>
+<div class="table-wrap"><table class="data-table compact-table"><thead><tr><th>Token-heavy prompt</th><th>Better prompt</th></tr></thead><tbody>
+<tr><td>Explore the auth system.</td><td>Find the entry points for JWT validation. Return only file paths, line numbers, and a one-sentence role for each. Do not read full files yet.</td></tr>
+<tr><td>Look through the tests.</td><td>Search for tests that mention refresh tokens. Return matching files and test names only.</td></tr>
+<tr><td>Understand why this broke.</td><td>Use git history, failing test output, and the changed files. Return claims with evidence pointers and confidence.</td></tr>
+<tr><td>Review this whole PR.</td><td>Review the diff against the Implementation Plan. Return blocking findings first, each with severity and file pointer.</td></tr>
+</tbody></table></div>
+<h2>4. Use permission posture as a productivity lever, not a safety shortcut</h2>
+<p>Permissions shape token efficiency because unnecessary approval prompts interrupt loops, but broad permissions can create risk. Start with read-heavy, write-light permissions, then widen only when the task and verification path are clear.</p>
+<pre><code>{
+  "permissions": {
+    "defaultMode": "bypassPermissions"
+  }
+}</code></pre>
+<div class="callout"><strong>Important:</strong> Treat <code>bypassPermissions</code> as a sandbox-only accelerator for trusted, disposable training repos or isolated environments. Do not use it as the default posture in production-adjacent repos, repos with secrets, deployment scripts, CI mutation, migrations, or broad network access. Prefer auto mode or scoped allow rules when available.</div>
+<h2>5. Enable and curate memory</h2>
+<p>Memory saves tokens when it prevents repeated corrections. It wastes tokens when it becomes stale, vague, or bloated.</p>
+<ul><li>Use <code>/memory</code> to inspect what Claude has learned.</li><li>Put durable project conventions in <code>CLAUDE.md</code>, not in chat history.</li><li>Use path-scoped rules for standards that only apply to certain files.</li><li>Use <code>@</code> imports for shared docs instead of repeated pasted text.</li><li>Prune stale assumptions and overly broad memories.</li></ul>
+<h2>6. Share context and investigation across tasks</h2>
+<p>The cheapest context is the context already summarized well. Do not make the next task rediscover what the last task proved.</p>
+<div class="table-wrap"><table class="data-table compact-table"><thead><tr><th>Reusable artifact</th><th>What it should preserve</th><th>Why it saves tokens</th></tr></thead><tbody>
+<tr><td>Explore findings</td><td>Claim, evidence pointer, confidence, open question.</td><td>Future tasks read findings instead of raw history.</td></tr>
+<tr><td>Request Changes</td><td>What failed, exact evidence, correction request, desired output.</td><td>Prevents “that didn’t work” follow-up churn.</td></tr>
+<tr><td>Review</td><td>Findings, severity, diff pointer, residual risk.</td><td>Review stays anchored to facts instead of re-reading everything.</td></tr>
+<tr><td>Review</td><td>Commands run, outputs summarized, unverified areas.</td><td>Next operator knows what is proven and what is not.</td></tr>
+<tr><td>Workflow handoff</td><td>Role, input artifact, output artifact, gate, stop condition.</td><td>Agents and humans can continue without reopening the whole problem.</td></tr>
+</tbody></table></div>
+<h2>7. Bound subagent output</h2>
+<p>Subagents are powerful because they can absorb noisy exploration without polluting the main context. That benefit disappears if the subagent returns a transcript-sized report.</p>
+<pre><code>Delegate this investigation to a subagent.
+
+Scope: auth middleware and token refresh only.
+Tools: Read, Grep, Glob, Bash for git history.
+Do not edit files.
+
+Return exactly:
+1. Findings, max 8 bullets
+2. Evidence pointers: file:line or commit SHA
+3. Confidence: high/medium/low
+4. Recommended next action</code></pre>
+<h2>8. Prompt with a token budget</h2>
+<pre><code>Return paths only. Do not read files yet.
+
+Read 40 lines around the match, not the whole file.
+
+Summarize logs into failures, evidence, and next command.
+
+Cap the answer at 10 bullets unless a blocking risk requires more.
+
+/compact focusing on decisions made, evidence pointers, files touched,
+unresolved questions, and residual risk.</code></pre>
+<h2>9. End-of-task token checklist</h2>
+<div class="table-wrap"><table class="data-table compact-table"><thead><tr><th>Before asking Claude to work</th><th>Before continuing the session</th></tr></thead><tbody>
+<tr><td>Have I named the artifact I want?</td><td>Did I save decisions into an artifact?</td></tr>
+<tr><td>Have I bounded files, paths, commands, and output length?</td><td>Did I compress noisy evidence into pointers?</td></tr>
+<tr><td>Have I chosen command, skill, script, or subagent?</td><td>Did I update memory, <code>CLAUDE.md</code>, or a skill if needed?</td></tr>
+<tr><td>Have I set the right permission posture?</td><td>Should I use guided <code>/compact</code> before the next task?</td></tr>
+</tbody></table></div>
+<div class="tryit"><h3>Hands-on: make one task 50% cheaper</h3><ol><li>Pick one broad prompt from your current workflow.</li><li>Rewrite it with a target, search boundary, output contract, and token budget.</li><li>Move any repeated command sequence into a script or skill.</li><li>Decide whether noisy discovery belongs in a subagent.</li><li>Write the compaction prompt you will use after the task.</li></ol></div>
+</section>
+
+<footer class="doc-footer"><div class="footer-brand"><span class="footer-logo"><svg fill="none" height="1024" viewbox="0 0 1024 1024" width="1024" xmlns="http://www.w3.org/2000/svg">
+<path d="M4.34808 508.688C3.47916 575.669 15.9681 642.154 41.0901 704.286C66.2122 766.419 103.467 822.961 150.693 870.633C197.919 918.304 254.176 956.155 316.199 981.989C378.222 1007.82 444.777 1021.13 512 1021.13C579.224 1021.13 645.778 1007.82 707.801 981.989C769.824 956.155 826.081 918.304 873.307 870.633C920.533 822.961 957.788 766.419 982.91 704.286C1008.03 642.154 1020.52 575.669 1019.65 508.688C1019.65 506.998 1019.65 505.392 1019.65 503.701H734.716C734.716 505.392 734.716 506.998 734.716 508.688C734.716 552.61 721.644 595.546 697.154 632.064C672.664 668.583 637.856 697.044 597.131 713.848C556.407 730.652 511.597 735.045 468.367 726.47C425.138 717.895 385.431 696.738 354.269 665.675C323.108 634.611 301.891 595.037 293.302 551.957C284.713 508.877 289.138 464.227 306.018 423.653C322.897 383.08 351.472 348.405 388.13 324.016C424.787 299.626 467.88 286.617 511.958 286.634H512.721L512.382 2.8742C445.686 2.81867 379.633 15.861 317.998 41.2556C256.363 66.6503 200.354 103.9 153.173 150.874C105.993 197.849 68.5644 253.628 43.0281 315.024C17.4918 376.42 4.34806 442.228 4.34808 508.688Z" fill="#1F222B"></path>
+<path d="M585.251 8.20435V299.149C616.254 309.879 644.496 327.3 667.958 350.168C691.421 373.036 709.524 400.786 720.975 431.435H1013.8C997.163 324.504 946.567 225.702 869.437 149.53C792.308 73.3574 692.706 23.8259 585.251 8.20435V8.20435Z" fill="#41A3FF"></path>
+</svg>
+</span><strong>ClosedLoop.AI</strong></div><div class="copyright">© 2026 ClosedLoop.AI All rights reserved. Student workbook version.</div></footer></main>
+<style>
+.copy-btn{position:absolute;top:9px;right:9px;font:700 11px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:#0369A1;border:1px solid #CBD5E1;border-radius:7px;padding:5px 9px;cursor:pointer;opacity:0;transition:opacity .15s,color .15s,border-color .15s}
+pre{position:relative}
+pre:hover .copy-btn,pre:focus-within .copy-btn,.copy-btn:focus{opacity:1}
+.copy-btn.copied{color:#14532D;border-color:#86EFAC;background:#F0FDF4}
+.tryit ol li.step,.exercise.step-host .ex-step{position:relative}
+.tryit ol li.step{list-style:none;margin-left:-6px;padding-left:30px}
+.tryit ol{counter-reset:none}
+.step-box{position:absolute;left:0;top:3px;width:18px;height:18px;border:2px solid var(--cl-blue);border-radius:5px;background:#fff;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto}
+.step-box:after{content:"";width:9px;height:9px;border-radius:2px;background:var(--cl-blue);transform:scale(0);transition:transform .12s}
+.ck.done > .step-box:after{transform:scale(1)}
+li.step.done{color:#6B7280;text-decoration:line-through;text-decoration-color:#B6C4D6}
+.exercise.checkable{position:relative;padding-left:48px}
+.exercise > .step-box{left:18px;top:18px;border-color:#22C55E}
+.exercise > .step-box:after{background:#16A34A}
+.exercise.done{border-left-color:#16A34A}
+.exercise.done > strong:first-child:after{content:" ✓";color:#16A34A;font-weight:800}
+.tryit{transition:background .25s,border-color .25s}
+.tryit.all-done{background:#F0FDF4;border-color:#BBF7D0;border-left-color:#22C55E}
+.tryit.all-done .step-box{border-color:#16A34A}
+.tryit.all-done .step-box:after{background:#16A34A}
+.tryit.all-done li.step.done{color:#15803D;text-decoration-color:#86EFAC}
+.tryit.all-done h3{color:#14532D}
+.tryit.all-done h3:after{content:" ✓ complete";color:#16A34A;font-size:13px;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
+.anchor-link{margin-left:.4em;color:var(--cl-line);text-decoration:none;font-weight:700;opacity:0;transition:opacity .15s}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link{opacity:1}
+.anchor-link:hover{color:var(--cl-blue)}
+.repo-link-list{list-style:disc;margin:12px 0 2px 22px;padding:0}
+.repo-link-list li{margin:6px 0;line-height:1.5}
+.repo-links strong{display:block}
+.module-badge{display:none;margin-left:12px;font:800 11px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#16A34A;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:999px;padding:4px 10px;vertical-align:middle;white-space:nowrap}
+.module-badge.show{display:inline-block}
+@media print{.module-badge{display:none!important}}
+.playground{margin:20px 0 26px}
+.pg-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 7px}
+.pg-tag{font:800 11px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#475569}
+.pg-tag:before{content:"✎ ";color:var(--cl-blue)}
+.pg-actions{display:flex;gap:8px;flex:0 0 auto}
+.pg-btn{font:700 11px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.04em;text-transform:uppercase;background:#fff;color:#0369A1;border:1px solid #CBD5E1;border-radius:7px;padding:5px 10px;cursor:pointer}
+.pg-btn:hover{border-color:var(--cl-blue)}
+.pg-input{display:block;width:100%;box-sizing:border-box;font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;font-size:14px;line-height:1.55;color:#075985;background:#EEF2F7;border:1px solid #CBD5E1;border-left:5px solid var(--cl-blue);border-radius:14px;padding:16px 18px;resize:vertical;min-height:80px;white-space:pre;overflow:auto;tab-size:2;-moz-tab-size:2;transition:border-color .2s,background .2s,color .2s}
+.pg-input:focus{outline:none;box-shadow:0 0 0 3px rgba(65,163,255,.18)}
+.playground.valid:not(.pristine) .pg-input{border-color:#86EFAC;border-left-color:#22C55E;background:#F0FDF4;color:#14532D}
+.pg-status{display:block;margin-top:7px;font:700 12px/1.4 Inter,ui-sans-serif,system-ui,sans-serif;color:#9A6700}
+.playground.valid:not(.pristine) .pg-status{color:#15803D}
+@media print{.pg-head,.pg-status{display:none!important}.pg-input{height:auto!important;white-space:pre-wrap;color:#075985!important;background:#EEF2F7!important}}
+.pg-task{position:relative;padding-left:28px;margin:11px 0 2px;font-size:14px;line-height:1.5;color:#475569;font-weight:600}
+.pg-task > .step-box{left:2px;top:3px;border-color:#22C55E;cursor:pointer}
+.pg-task > .step-box:after{background:#16A34A}
+.pg-task.done{color:#15803D}
+.pg-task-hint{font-weight:800;letter-spacing:.05em;text-transform:uppercase;font-size:10px;color:var(--cl-blue);margin-right:7px}
+.pg-task.done .pg-task-hint{color:#16A34A}
+@media print{.pg-task > .step-box{display:none}.pg-task{padding-left:0}}
+.playground{position:relative}
+.pg-head{flex-wrap:wrap}
+.pg-headleft{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.pg-kind{font:800 9px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--cl-blue);border-radius:999px;padding:4px 8px}
+.pg-select{font:600 13px/1 Inter,ui-sans-serif,system-ui,sans-serif;color:#0F172A;background:#fff;border:1px solid #CBD5E1;border-radius:8px;padding:8px 10px;cursor:pointer;flex:1 1 auto;max-width:560px}
+.pg-editcue{font:800 10px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.06em;text-transform:uppercase;color:#0369A1;background:#EAF3FB;border:1px solid #BBDFFF;border-radius:7px;padding:5px 9px}
+.playground:not(.pristine) .pg-editcue{display:none}
+.pg-selectrow{display:flex;align-items:center;gap:10px;margin:2px 0 10px}
+.pg-sellabel{font:800 11px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.05em;text-transform:uppercase;color:#475569;flex:0 0 auto}
+.playground.pristine .pg-input{border-style:dashed;border-width:2px;border-color:var(--cl-blue);border-left-color:var(--cl-blue);background:#E8F4FF;color:#0B4A6F;cursor:pointer}
+.playground.pristine .pg-input:hover{background:#DCEEFF}
+.playground.pristine .pg-status{color:#0369A1}
+@media print{.pg-kind,.pg-selectrow,.pg-editcue{display:none!important}.playground.pristine .pg-input{border-style:solid;border-width:1px;background:#EEF2F7;color:#075985}}
+.to-top{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;border:0;background:var(--cl-navy);color:#fff;font-size:21px;line-height:1;cursor:pointer;box-shadow:0 8px 22px rgba(31,34,43,.30);opacity:0;pointer-events:none;transition:opacity .2s;z-index:60}
+.to-top.show{opacity:.92;pointer-events:auto}
+.to-top:hover{opacity:1}
+.wb-progress{position:fixed;top:0;left:0;right:0;height:4px;background:rgba(31,34,43,.08);z-index:70}
+.wb-progress-fill{height:100%;width:0;background:linear-gradient(90deg,var(--cl-blue),#22C55E);transition:width .35s ease}
+.wb-pill{position:fixed;left:22px;bottom:22px;z-index:60;font:800 12px/1 Inter,ui-sans-serif,system-ui,sans-serif;letter-spacing:.02em;color:var(--cl-navy);background:#fff;border:1px solid var(--cl-line);border-radius:999px;padding:9px 15px;box-shadow:0 6px 18px rgba(15,23,42,.12);cursor:pointer}
+.wb-pill.done{color:#14532D;background:#F0FDF4;border-color:#86EFAC}
+.wb-complete{position:fixed;left:50%;bottom:26px;transform:translateX(-50%) translateY(20px);z-index:80;display:flex;align-items:center;gap:14px;background:#0F2A1A;color:#ECFDF5;border:1px solid #16A34A;border-left:6px solid #22C55E;border-radius:14px;padding:14px 18px;box-shadow:0 16px 40px rgba(5,46,22,.34);opacity:0;pointer-events:none;transition:opacity .3s,transform .3s;max-width:90vw}
+.wb-complete.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.wb-complete strong{font-size:15px;display:block}
+.wb-complete span{font-size:13px;color:#A7F3D0}
+.wb-complete-x{margin-left:6px;background:transparent;border:0;color:#A7F3D0;font-size:21px;cursor:pointer;line-height:1}
+@media print{.copy-btn,.anchor-link,.to-top,.wb-progress,.wb-pill,.wb-complete{display:none!important}.tryit ol li.step{list-style:decimal;padding-left:3px;margin-left:0}.step-box{display:none}.exercise.checkable{padding-left:20px}li.step.done{text-decoration:none;color:inherit}}
+</style>
+<script>
+/* Workbook progress analytics — OPTIONAL.
+   Set gaMeasurementId to your GA4 ID (e.g. "G-XXXXXXXXXX") to capture how far learners get.
+   Leave it empty to disable: events become no-ops (or GTM dataLayer pushes if present).
+   userId is OPTIONAL and attributes progress to a known learner — that is PII, so only set
+   it where you have consent and a privacy basis. Anonymous GA client IDs work without it. */
+window.WB_CONFIG=window.WB_CONFIG||{ gaMeasurementId:"G-WQQGRWY7NR", userId:"" };
+(function(){
+  var id=(window.WB_CONFIG||{}).gaMeasurementId;if(!id)return;
+  var s=document.createElement("script");s.async=true;s.src="https://www.googletagmanager.com/gtag/js?id="+encodeURIComponent(id);document.head.appendChild(s);
+  window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments);};
+  window.gtag("js",new Date());
+  window.gtag("config",id,window.WB_CONFIG.userId?{user_id:window.WB_CONFIG.userId}:{});
+})();
+</script>
+<script>
+(function(){
+  "use strict";
+  var NS="ccwb-v1:";
+  var WB=(window.WB_CONFIG||{});
+  function track(name,params){
+    try{
+      params=params||{};if(WB.userId)params.user_id=WB.userId;
+      if(typeof window.gtag==="function"){window.gtag("event",name,params);}
+      else if(window.dataLayer&&window.dataLayer.push){var o={event:name};for(var k in params){o[k]=params[k];}window.dataLayer.push(o);}
+    }catch(e){}
+  }
+  function secId(el){var s=el&&(el.closest("section.chapter")||el.closest("section"));return s?s.id:"";}
+  function slug(s){return s.toLowerCase().replace(/[^\w\s-]/g,"").trim().replace(/\s+/g,"-").slice(0,60)||"section";}
+  // Course progress + completion controller
+  var courseUI=null;
+  function buildCourseUI(){
+    var bar=document.createElement("div");bar.className="wb-progress";bar.innerHTML='<div class="wb-progress-fill"></div>';
+    var pill=document.createElement("button");pill.type="button";pill.className="wb-pill";pill.setAttribute("aria-label","Curriculum progress — jump to next unchecked task");
+    pill.addEventListener("click",function(){var next=document.querySelector(".ck:not(.done)");if(next)next.scrollIntoView({behavior:"smooth",block:"center"});else window.scrollTo({top:0,behavior:"smooth"});});
+    var banner=document.createElement("div");banner.className="wb-complete";banner.innerHTML='<div><strong>🎉 Curriculum complete</strong><span>You’ve checked off every hands-on task and exercise. Nice work.</span></div><button type="button" class="wb-complete-x" aria-label="Dismiss">×</button>';
+    banner.querySelector(".wb-complete-x").addEventListener("click",function(){banner.classList.remove("show");});
+    document.body.appendChild(bar);document.body.appendChild(pill);document.body.appendChild(banner);
+    courseUI={fill:bar.querySelector(".wb-progress-fill"),pill:pill,banner:banner};
+  }
+  function moduleName(sec){var h=sec.querySelector("h1");return h?h.textContent.replace(/#+$/,"").trim():(sec.id||"section");}
+  function moduleBadge(sec,done){
+    var host=sec.querySelector(".module-kicker")||sec.querySelector("h1");if(!host)return;
+    var b=host.querySelector(".module-badge");
+    if(!b){b=document.createElement("span");b.className="module-badge";b.textContent="✓ Module complete";host.appendChild(b);}
+    b.classList.toggle("show",done);
+  }
+  function updateModules(){
+    try{
+      var groups={};
+      document.querySelectorAll(".ck").forEach(function(el){
+        var sec=el.closest("section.chapter")||el.closest("section");if(!sec)return;
+        var id=sec.id||"section";(groups[id]=groups[id]||{sec:sec,items:[]}).items.push(el);
+      });
+      Object.keys(groups).forEach(function(id){
+        var g=groups[id],total=g.items.length,done=0;
+        g.items.forEach(function(x){if(x.classList.contains("done"))done++;});
+        var complete=(done===total);
+        g.sec.classList.toggle("module-complete",complete);
+        moduleBadge(g.sec,complete);
+        var startKey=NS+"module-start:"+id,doneKey=NS+"module-complete:"+id;
+        if(done>0){var sWas=false;try{sWas=localStorage.getItem(startKey)==="1";}catch(e){}if(!sWas){try{localStorage.setItem(startKey,"1");}catch(e){}track("module_start",{module_id:id,module_name:moduleName(g.sec)});}}
+        var cWas=false;try{cWas=localStorage.getItem(doneKey)==="1";}catch(e){}
+        if(complete&&!cWas){try{localStorage.setItem(doneKey,"1");}catch(e){}track("module_complete",{module_id:id,module_name:moduleName(g.sec),tasks_total:total});}
+        else if(!complete&&cWas){try{localStorage.removeItem(doneKey);}catch(e){}}
+      });
+    }catch(e){}
+  }
+  function updateCourse(){
+    try{
+      if(!courseUI)buildCourseUI();
+      updateModules();
+      var total=document.querySelectorAll(".ck").length;if(!total)return;
+      var done=document.querySelectorAll(".ck.done").length;
+      var pct=Math.round(done/total*100);
+      courseUI.fill.style.width=pct+"%";
+      var complete=(done===total);
+      courseUI.pill.textContent=complete?"✓ Curriculum complete":(pct+"% complete · "+done+"/"+total);
+      courseUI.pill.classList.toggle("done",complete);
+      var was=false;try{was=localStorage.getItem(NS+"course-complete")==="1";}catch(e){}
+      if(complete){if(!was){courseUI.banner.classList.add("show");try{localStorage.setItem(NS+"course-complete","1");}catch(e){}track("course_complete",{tasks_total:total});}}
+      else{courseUI.banner.classList.remove("show");try{localStorage.removeItem(NS+"course-complete");}catch(e){}}
+    }catch(e){}
+  }
+  // 0) External links open in a new tab
+  try{
+    document.querySelectorAll("a[href]").forEach(function(a){
+      if(/^https?:/i.test(a.getAttribute("href")||"")){a.target="_blank";a.rel="noopener noreferrer";}
+    });
+  }catch(e){}
+  // 0.5) Editable "playground" artifacts — go green when correctly formatted; optional inline challenge
+  try{
+    function autosize(ta){ta.style.height="auto";ta.style.height=(ta.scrollHeight+4)+"px";}
+    function toolCount(s){var m=/(^|\n)\s*tools:\s*(.+)/.exec(s);return m?m[2].split(",").filter(function(x){return x.trim();}).length:0;}
+    var changedValid=function(t,o,ok){return ok&&t.trim()!==o.trim();};
+    var moreTools=function(t,o,ok){return ok&&toolCount(t)>toolCount(o);};
+    var T_MANIFEST="{\n  \"name\": \"code-review\",\n  \"description\": \"Evidence-first PR review: command, skill, subagent, hook, and a bundled tool.\",\n  \"version\": \"0.1.0\"\n}";
+    var T_COMMAND="# commands/review-pr.md\n# /review-pr runs this prompt — it stitches the plugin's parts together.\nRun the pr-review skill on the staged diff, and delegate the deep security pass to\nthe pr-reviewer subagent (it runs the check-diff tool and the github MCP server).\n\nReport in this shape:\n1. Highest-risk change and why\n2. Security or data-loss concerns from the pr-reviewer subagent\n3. Tests that should exist but do not\n4. Suggested follow-ups, smallest first\n\nDo not rewrite the code; report findings only.";
+    var T_SKILL="---\nname: pr-review\ndescription: Review a pull request diff against the Implementation Plan and report findings by severity.\n---\n\n# PR review\n\n## Inputs\n- the diff or PR number\n- the Implementation Plan\n\n## Steps\n1. Read the diff against the plan\n2. Delegate the security pass to the pr-reviewer subagent\n3. Flag scope drift and missing tests\n4. Rank findings by severity\n\n## Output\nA findings-first review with severity, evidence, and a recommended fix.";
+    var T_AGENT="# agents/pr-reviewer.md\n---\nname: pr-reviewer\ndescription: Reviews diffs for security and correctness. Use proactively before merge.\ntools: Read, Grep, Glob, Bash, mcp__github\nmodel: sonnet\n---\n\nYou are a careful code reviewer. For every change:\n1. Run the check-diff tool for a quick mechanical scan\n2. Use the github MCP tools to check related issues and prior PRs\n3. Report findings by severity; do not edit files unless asked.";
+    var T_HOOK="{\n  \"hooks\": {\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"${CLAUDE_PLUGIN_ROOT}/tools/check-diff.sh\" }\n        ]\n      }\n    ]\n  }\n}";
+    var T_TOOL="#!/usr/bin/env bash\n# tools/check-diff.sh — a plugin can SHIP CLI tools. Claude runs binaries like this\n# via Bash under your permission rules; there is no separate \"tool definition\" to write.\nset -euo pipefail\ngit diff --cached --stat\ngit diff --cached | grep -nE 'TODO|FIXME|console\\.log' || true";
+    var SWITCH_TEMPLATES=[
+      {key:"plugin",label:"Plugin · .claude-plugin/plugin.json (the manifest that bundles them)",type:"manifest",task:"Bump the version to 0.2.0.",body:T_MANIFEST},
+      {key:"command",label:"Command · commands/review-pr.md",need:["1.","Do not"],task:"Add a fifth item to the report shape.",body:T_COMMAND},
+      {key:"skill",label:"Skill · skills/pr-review/SKILL.md",need:["name:","description:","## Steps","## Output"],task:"Add one more numbered step to the ## Steps section.",body:T_SKILL},
+      {key:"subagent",label:"Subagent · agents/pr-reviewer.md (an “agent” is a subagent)",type:"agent",task:"Add two more CLI tools to the tools: line and keep the frontmatter valid.",body:T_AGENT},
+      {key:"hook",label:"Hook · hooks/hooks.json (wires a script to an event)",type:"hook",task:"Add a PostToolUse entry alongside PreToolUse.",body:T_HOOK},
+      {key:"tool",label:"Tool · tools/check-diff.sh (a CLI binary the plugin ships)",type:"script",task:"Add one more check — for example, grep for 'debugger'.",body:T_TOOL}
+    ];
+    var PG=[
+      {sig:"# Implementation Plan",label:"Implementation Plan",need:["## Goal","## Known facts","## Acceptance criteria"],task:"Add one more acceptance criterion to the list."},
+      {sig:"# Explore Findings",label:"Explore findings",need:["## Question","## Evidence","## Open questions"]},
+      {sig:"# Request Changes",label:"Request Changes",need:["## Attempted change","## Expected result","## Actual result","## Evidence","## Next instruction"]},
+      {sig:"## Plan alignment",label:"Review",need:["## Plan alignment","## Changed files","## Evidence","## Residual risk"]},
+      {sig:"Trigger:",label:"Workflow",need:["Name:","Trigger:","Artifacts:","Roles:","Gates:","Stop condition:"],task:"Add a fourth role to the Roles section."},
+      {sig:"# Workflow Retro",label:"Workflow Retro",need:["Workflow name:","One thing to keep:","One thing to change next run:"]},
+      {sig:"Task: Review a PR for auth regressions",switcher:true,label:"Plugin primitives",templates:SWITCH_TEMPLATES},
+      {sig:"# .claude/skills/flaky-test-investigation/SKILL.md",label:"Skill · SKILL.md",need:["## Purpose","## Required inputs","## Workflow","## Outputs"],task:"Add one more numbered step to the ## Workflow section."},
+      {sig:"# .claude/commands/summarize-failing-test.md",label:"Command",need:["1.","Do not"],task:"Add a sixth item to the summary shape."},
+      {sig:"# .claude/agents/security-reviewer.md",label:"Subagent · frontmatter",type:"agent",task:"Add two more CLI tools to this subagent’s tools: line (for example Edit, Bash(git log:*)) and keep the frontmatter valid.",check:moreTools},
+      {sig:"\"permissions\"",label:"Permissions · settings.json",type:"json"},
+      {sig:"Secondary:",label:"Context map",need:["Primary:","Secondary:"]}
+    ];
+    function validate(text,e){
+      if(e.type==="manifest"){var jm;try{jm=JSON.parse(text);}catch(err){return{ok:false,msg:"invalid JSON — "+(err.message||"parse error")};}return(jm&&jm.name&&jm.description)?{ok:true,msg:"valid plugin manifest"}:{ok:false,msg:"needs \"name\" and \"description\""};}
+      if(e.type==="hook"){var jh;try{jh=JSON.parse(text);}catch(err){return{ok:false,msg:"invalid JSON — "+(err.message||"parse error")};}return(jh&&jh.hooks)?{ok:true,msg:"valid hooks config — wires a script to a lifecycle event"}:{ok:false,msg:"needs a \"hooks\" object"};}
+      if(e.type==="script"){return /^#!/.test(text.trim())?{ok:true,msg:"valid shell script — Claude runs it via Bash under your permissions"}:{ok:false,msg:"needs a #! shebang line"};}
+      if(e.type==="mcp"){var mo;try{mo=JSON.parse(text);}catch(err){return{ok:false,msg:"invalid JSON — "+(err.message||"parse error")};}return(mo&&mo.mcpServers&&Object.keys(mo.mcpServers).length)?{ok:true,msg:"valid MCP server config — its tools become available to the agent"}:{ok:false,msg:"needs a non-empty \"mcpServers\" object"};}
+      if(e.type==="json"){try{JSON.parse(text);return{ok:true,msg:"valid JSON"};}catch(err){return{ok:false,msg:"invalid JSON — "+(err.message||"parse error")};}}
+      if(e.type==="agent"){
+        var m=/(^|\n)---[ \t]*\n([\s\S]*?)\n---/.exec(text);
+        if(!m)return{ok:false,msg:"needs a --- frontmatter --- block"};
+        var miss=[];["name","description"].forEach(function(k){if(!new RegExp("(^|\\n)\\s*"+k+"\\s*:\\s*\\S").test(m[2]))miss.push(k);});
+        return miss.length?{ok:false,msg:"frontmatter missing: "+miss.join(", ")}:{ok:true,msg:"valid subagent definition"};
+      }
+      var missing=(e.need||[]).filter(function(t){return text.indexOf(t)===-1;});
+      return missing.length?{ok:false,msg:"missing: "+missing.join("  ·  ")}:{ok:true,msg:"looks correctly formatted"};
+    }
+    function doCopy(text,btn){
+      var done=function(){btn.textContent="Copied";setTimeout(function(){btn.textContent="Copy";},1400);};
+      if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){});}
+      else{try{var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);done();}catch(e){}}
+    }
+    var used={};
+    function keyFor(base){var k=NS+"pg:"+slug(base);while(used[k]){k+="_";}used[k]=1;return k;}
+    document.querySelectorAll("pre").forEach(function(pre){
+      var code=pre.querySelector("code");var text=(code?code.innerText:pre.innerText);
+      var entry=null;for(var i=0;i<PG.length;i++){if(text.indexOf(PG[i].sig)!==-1){entry=PG[i];break;}}
+      if(!entry)return;
+      var nonSwitchKey=entry.switcher?null:keyFor(entry.sig);
+      var wrap=document.createElement("div");wrap.className="playground pristine";
+      var head=document.createElement("div");head.className="pg-head";
+      var left=document.createElement("span");left.className="pg-headleft";
+      var tag=document.createElement("span");tag.className="pg-tag";
+      var kind=document.createElement("span");kind.className="pg-kind";kind.textContent="Interactive";
+      var cue=document.createElement("span");cue.className="pg-editcue";cue.textContent="✎ Click to edit";
+      left.appendChild(tag);left.appendChild(kind);left.appendChild(cue);
+      var actions=document.createElement("span");actions.className="pg-actions";
+      var copy=document.createElement("button");copy.type="button";copy.className="pg-btn";copy.textContent="Copy";
+      var reset=document.createElement("button");reset.type="button";reset.className="pg-btn";reset.textContent="Reset";
+      actions.appendChild(copy);actions.appendChild(reset);head.appendChild(left);head.appendChild(actions);
+      var selrow=null,sel=null;
+      if(entry.switcher){
+        sel=document.createElement("select");sel.className="pg-select";sel.setAttribute("aria-label","Choose a Claude Code primitive to try");
+        entry.templates.forEach(function(t,idx){var o=document.createElement("option");o.value=idx;o.textContent=t.label;sel.appendChild(o);});
+        selrow=document.createElement("div");selrow.className="pg-selectrow";
+        var sl=document.createElement("label");sl.className="pg-sellabel";sl.textContent="Template";
+        selrow.appendChild(sl);selrow.appendChild(sel);
+      }
+      var ta=document.createElement("textarea");ta.className="pg-input";ta.spellcheck=false;ta.setAttribute("aria-label","Editable example — try it");
+      var status=document.createElement("span");status.className="pg-status";
+      var taskHost=document.createElement("div");taskHost.className="pg-taskhost";
+      wrap.appendChild(head);if(selrow)wrap.appendChild(selrow);wrap.appendChild(ta);wrap.appendChild(status);wrap.appendChild(taskHost);
+      var active,original,key,taskEl;
+      function setTaskDone(v,silent){
+        if(!taskEl)return;
+        var was=taskEl.classList.contains("done");
+        taskEl.classList.toggle("done",v);
+        var sb=taskEl.querySelector(".step-box");if(sb)sb.setAttribute("aria-checked",v?"true":"false");
+        var dk=key+":done";try{v?localStorage.setItem(dk,"1"):localStorage.removeItem(dk);}catch(e){}
+        if(v&&!was&&!silent)track("challenge_complete",{artifact:active.label||entry.label,module_id:secId(wrap)});
+        updateCourse();
+      }
+      function buildTask(){
+        taskHost.innerHTML="";taskEl=null;
+        if(!active.task)return;
+        taskEl=document.createElement("div");taskEl.className="ck pg-task";
+        var sb=document.createElement("span");sb.className="step-box";sb.setAttribute("role","checkbox");sb.setAttribute("tabindex","0");
+        var hint=document.createElement("span");hint.className="pg-task-hint";hint.textContent="Try";
+        taskEl.appendChild(sb);taskEl.appendChild(hint);taskEl.appendChild(document.createTextNode(active.task));
+        taskHost.appendChild(taskEl);
+        var dk=key+":done",dWas=false;try{dWas=localStorage.getItem(dk)==="1";}catch(e){}
+        if(dWas)taskEl.classList.add("done");
+        sb.setAttribute("aria-checked",taskEl.classList.contains("done")?"true":"false");
+        function toggle(){setTaskDone(!taskEl.classList.contains("done"),false);}
+        sb.addEventListener("click",toggle);
+        sb.addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();toggle();}});
+      }
+      function run(){
+        var v=validate(ta.value,active);
+        wrap.classList.toggle("valid",v.ok);
+        status.textContent=wrap.classList.contains("pristine")?"✎ Editable — click in and edit to try it":((v.ok?"✓ ":"✎ ")+v.msg);
+        updateCourse();
+      }
+      function loadConfig(cfg){
+        active=cfg;original=(cfg.body!==undefined?cfg.body:text);
+        key=entry.switcher?(NS+"pg:"+slug(entry.label)+":"+cfg.key):nonSwitchKey;
+        var saved=null;try{saved=localStorage.getItem(key);}catch(e){}
+        ta.value=(saved!==null?saved:original);
+        tag.textContent=cfg.label||entry.label;
+        buildTask();wrap.classList.add("pristine");run();autosize(ta);
+      }
+      ta.addEventListener("focus",function(){if(wrap.classList.contains("pristine")){wrap.classList.remove("pristine");run();}});
+      ta.addEventListener("input",function(){
+        wrap.classList.remove("pristine");
+        try{localStorage.setItem(key,ta.value);}catch(e){}
+        var sk=key+":start",sWas=false;try{sWas=localStorage.getItem(sk)==="1";}catch(e){}
+        if(!sWas){try{localStorage.setItem(sk,"1");}catch(e){}track("playground_start",{artifact:active.label||entry.label,module_id:secId(wrap)});}
+        if(taskEl&&!taskEl.classList.contains("done"))setTaskDone(true,false);
+        run();autosize(ta);
+      });
+      copy.addEventListener("click",function(){doCopy(ta.value,copy);track("copy_snippet",{artifact:active.label||entry.label});});
+      reset.addEventListener("click",function(){ta.value=original;try{localStorage.removeItem(key);}catch(e){}wrap.classList.add("pristine");run();autosize(ta);});
+      if(sel){sel.addEventListener("change",function(){loadConfig(entry.templates[parseInt(sel.value,10)||0]);track("template_switch",{artifact:active.label});});}
+      pre.parentNode.replaceChild(wrap,pre);
+      loadConfig(entry.switcher?entry.templates[0]:entry);
+    });
+  }catch(e){}
+  // 1) Copy buttons on code blocks
+  try{
+    document.querySelectorAll("pre").forEach(function(pre){
+      var btn=document.createElement("button");
+      btn.className="copy-btn";btn.type="button";btn.textContent="Copy";
+      btn.setAttribute("aria-label","Copy code to clipboard");
+      btn.addEventListener("click",function(){
+        track("copy_snippet",{artifact:"code block"});
+        var code=pre.querySelector("code"),text=(code?code.innerText:pre.innerText);
+        var done=function(){btn.textContent="Copied";btn.classList.add("copied");setTimeout(function(){btn.textContent="Copy";btn.classList.remove("copied");},1400);};
+        if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,function(){fallback(text,done);});}
+        else{fallback(text,done);}
+      });
+      pre.appendChild(btn);
+    });
+    function fallback(text,done){try{var ta=document.createElement("textarea");ta.value=text;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();document.execCommand("copy");document.body.removeChild(ta);done();}catch(e){}}
+  }catch(e){}
+  // 2) Persistent checkboxes — every actionable task is a checkable item
+  try{
+    var used={};
+    function refresh(group){
+      if(!group)return;
+      var steps=group.querySelectorAll("li.step");
+      if(!steps.length)return;
+      var all=true;steps.forEach(function(s){if(!s.classList.contains("done"))all=false;});
+      group.classList.toggle("all-done",all);
+    }
+    function attach(el,prefix,after){
+      el.classList.add("ck");
+      var key=NS+prefix+":"+slug((el.textContent||"").slice(0,50));
+      while(used[key]){key+="_";}used[key]=1;
+      var box=document.createElement("span");box.className="step-box";box.setAttribute("role","checkbox");box.setAttribute("tabindex","0");
+      function set(v){el.classList.toggle("done",v);box.setAttribute("aria-checked",v?"true":"false");try{v?localStorage.setItem(key,"1"):localStorage.removeItem(key);}catch(e){}if(after)after();updateCourse();}
+      function toggle(){var nowDone=!el.classList.contains("done");set(nowDone);if(nowDone)track("task_complete",{module_id:secId(el),task:(el.textContent||"").replace(/\s+/g," ").trim().slice(0,80)});}
+      var saved=false;try{saved=localStorage.getItem(key)==="1";}catch(e){}
+      set(saved);
+      box.addEventListener("click",toggle);
+      box.addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){e.preventDefault();toggle();}});
+      el.insertBefore(box,el.firstChild);
+    }
+    // hands-on steps — grouped sets that turn green when fully complete
+    document.querySelectorAll(".tryit ol > li").forEach(function(li){
+      li.classList.add("step");
+      var group=li.closest(".tryit");
+      attach(li,"step",function(){refresh(group);});
+    });
+    // per-module exercises — single-task checkable items
+    document.querySelectorAll(".exercise").forEach(function(ex){
+      ex.classList.add("checkable");
+      attach(ex,"exercise",null);
+    });
+    document.querySelectorAll(".tryit").forEach(refresh);
+    updateCourse();
+  }catch(e){}
+  // 2b) Reformat inline "·"-separated repo link callouts as a bulleted list
+  try{
+    document.querySelectorAll(".callout.repo-links").forEach(function(c){
+      var links=Array.prototype.slice.call(c.querySelectorAll("a"));
+      if(links.length<2)return;
+      var label=c.querySelector("strong");
+      var ul=document.createElement("ul");ul.className="repo-link-list";
+      links.forEach(function(a){var li=document.createElement("li");li.appendChild(a);ul.appendChild(li);});
+      c.innerHTML="";
+      if(label)c.appendChild(label);
+      c.appendChild(ul);
+    });
+  }catch(e){}
+  // 3) Deep-link anchors on headings
+  try{
+    var seen={};
+    document.querySelectorAll("section h1, section h2, section h3").forEach(function(h){
+      if(h.classList.contains("hero-title"))return;
+      var id=h.id||slug(h.textContent||"");
+      while(seen[id]||(!h.id&&document.getElementById(id))){id+="-x";}
+      seen[id]=1;if(!h.id)h.id=id;
+      var a=document.createElement("a");a.className="anchor-link";a.href="#"+h.id;a.textContent="#";a.setAttribute("aria-label","Link to this section");
+      h.appendChild(a);
+    });
+  }catch(e){}
+  // 4) Back-to-top
+  try{
+    var top=document.createElement("button");top.className="to-top";top.type="button";top.textContent="↑";top.setAttribute("aria-label","Back to top");
+    top.addEventListener("click",function(){window.scrollTo({top:0,behavior:"smooth"});});
+    document.body.appendChild(top);
+    var tick=false;
+    window.addEventListener("scroll",function(){if(tick)return;tick=true;requestAnimationFrame(function(){top.classList.toggle("show",window.scrollY>600);tick=false;});});
+  }catch(e){}
+})();
+</script>
+</body></html>
