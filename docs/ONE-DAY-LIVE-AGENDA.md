@@ -4,7 +4,7 @@ A single, hands-on day that gives you one repeatable operating model for Claude 
 
 ## Format
 
-- One live session of roughly five hours, plus two short breaks.
+- One live session of roughly five hours of modules, plus a lunch break.
 - **Hands-on throughout** — you follow along in the workbook and build small artifacts as we go.
 - The **Claude Code CLI on Mac or Linux** is the primary path we demo; the patterns apply to any stack.
 - It's a large group, so questions run through chat (see "How questions work" below).
@@ -26,14 +26,13 @@ These module timeboxes match the workbook, which is the single source of truth f
 | 0:00–0:05 | Welcome & setup check | Confirm everyone's environment is ready | — |
 | 0:05–1:15 | Module 1 — Build Claude Code primitives | Tools, commands, skills, agents, subagents, plugins; interactive vs. headless; choosing the right model for the job | A primitive kit |
 | 1:15–2:10 | Module 2 — Planning & context management | Turn messy intake into a compact, reviewable Implementation Plan; manage the context window | An Implementation Plan + context map |
-| 2:10–2:20 | Break | | |
-| 2:20–3:20 | Module 3 — Intent recovery & dynamic evidence | Use git history, issues, logs, tests, and screenshots to find the *why* before changing code | Explore findings + a Request Changes review |
-| 3:20–4:20 | Module 4 — Review, test & verify | Review the diff against the plan; make scope, regression risk, and verification explicit | Findings + a Review |
-| 4:20–4:30 | Break | | |
-| 4:30–5:15 | Module 5 — Workflow design & improvement loop | Turn the day's steps into one named, repeatable workflow with handoffs, gates, and stop conditions | A Workflow + one improvement note |
-| 5:15–5:20 | Wrap-up & next steps | What to try first next week | — |
+| 2:10–3:10 | Module 3 — Intent recovery & dynamic evidence | Use git history, issues, logs, tests, and screenshots to find the *why* before changing code | Explore findings + a Request Changes review |
+| 3:10–3:40 | Lunch break | | |
+| 3:40–4:40 | Module 4 — Review, test & verify | Review the diff against the plan; make scope, regression risk, and verification explicit | Findings + a Review |
+| 4:40–5:25 | Module 5 — Workflow design & improvement loop | Turn the day's steps into one named, repeatable workflow with handoffs, gates, and stop conditions | A Workflow + one improvement note |
+| 5:25–5:30 | Wrap-up & next steps | What to try first next week | — |
 
-*About five hours of modules plus two short breaks (≈ 5h20m end to end).*
+*About five hours of modules plus a 30-minute lunch break (≈ 5h30m end to end).*
 
 ## What you'll leave with
 
