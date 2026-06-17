@@ -2,11 +2,11 @@
 
 Everything you need for the one-day, hands-on Claude Code training. The day teaches one repeatable operating model: **craft the right Claude Code primitives, plan and manage context, recover intent with evidence, review and verify against the plan, and design a workflow you can reuse.**
 
-> This repo is everything you need for the **one-day course**. The labs are optional, self-paced enrichment; one further-practice lab (07) is included and clearly marked as optional.
+> This repo is everything you need for the **one-day course**. Setup is required pre-work; the module labs (01–06) and the further-practice lab (07) are optional, self-paced enrichment.
 
 ## Start here
 
-1. **Pre-work (required):** complete the [pre-work checklist](docs/ONE-DAY-PREWORK-CHECKLIST.md) before the live session. (Prefer a guided walk-through? The optional [Lab 00](labs/00-environment-setup-local-stack-bootstrap/LAB.md) covers the same setup.)
+1. **Pre-work (required):** complete the [pre-work checklist](docs/ONE-DAY-PREWORK-CHECKLIST.md) before the live session. (Prefer a hands-on walk-through? [Lab 00](labs/00-environment-setup-local-stack-bootstrap/LAB.md) covers the same setup.)
 2. **Agenda:** [docs/ONE-DAY-LIVE-AGENDA.md](docs/ONE-DAY-LIVE-AGENDA.md)
 3. **Workbook (in-class):** open [workbook/index.html](workbook/index.html) in a browser — interactive, with editable examples and progress tracking.
 
@@ -30,7 +30,7 @@ The artifacts you build use ClosedLoop's product nomenclature (Implementation Pl
 workbook/   # the interactive in-class workbook (open index.html)
 docs/       # one-day agenda, pre-work checklist, and reference docs
 slides/     # one-day presentation guide + ready-made demo artifacts (good vs anti-pattern)
-labs/       # optional, self-paced enrichment: Lab 00 guided setup + module labs (01-06) + further practice (07)
+labs/       # Lab 00 setup walk-through (required setup) + optional module labs (01-06) + further practice (07)
 templates/  # reusable primitives: command, skill, subagent, hook, tool, MCP server, plugin manifest, verification gate
 examples/   # demo-app the labs run against
 scripts/    # demo test runner

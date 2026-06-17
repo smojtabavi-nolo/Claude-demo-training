@@ -84,7 +84,7 @@ Self-check — every box should be ticked before the session:
 - `claude doctor` diagnoses most Claude Code install and auth issues.
 - If something is still broken, note the exact command and error so it can be resolved quickly at the start of the session.
 
-> Want a guided walk-through of the same setup? The optional [Lab 00 — Environment Setup](../labs/00-environment-setup-local-stack-bootstrap/LAB.md) covers everything here as a hands-on lab. It is not required — this checklist is enough.
+> Prefer a guided walk-through? [Lab 00 — Environment Setup](../labs/00-environment-setup-local-stack-bootstrap/LAB.md) covers these same steps as a hands-on lab. Either way, complete the setup before the session.
 
 ## Related Files
 

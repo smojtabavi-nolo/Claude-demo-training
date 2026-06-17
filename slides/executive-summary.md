@@ -19,7 +19,7 @@ The day is built around one repeatable operating model, delivered as five module
 4. **Review, test & verify** — review the diff against the plan and make risk and verification explicit.
 5. **Workflow design & improvement loop** — turn the day's steps into one named, reusable workflow with handoffs, gates, and stop conditions.
 
-Lab 00 is the optional environment-bootstrap lab; the required setup is the pre-work checklist completed before the session.
+Lab 00 is the environment-bootstrap lab; setup is required pre-work, completed via the pre-work checklist before the session.
 
 The optional enrichment labs map to the modules:
 
