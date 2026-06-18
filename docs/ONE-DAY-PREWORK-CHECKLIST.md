@@ -2,11 +2,13 @@
 
 ## Purpose
 
-Complete this checklist **before** the one-day intensive so you arrive ready to build, not to install.
+Complete this checklist **before** the one-day intensive so your setup is done and you can dive straight into building.
 
-The live session is only about five hours. Every minute spent fixing setup is a minute taken from hands-on instruction. Run the install and verify steps below on the machine you will use during the session.
+The live session is only about five hours of instruction (roughly six hours including lunch and breaks), and it is hands-on from the start, so you will need a working setup before we begin. Run the install and verify steps below on the machine you will use during the session.
 
-> Tip: run each **Verify** command and confirm you get the expected output. If a command is "not found," the tool is not installed (or not on your `PATH`) — revisit the install step.
+> **New to this setup, or want a guided version?** [Lab 00: Environment Setup](https://github.com/closedloop-ai/claude-code-expert-training/blob/main/labs/00-environment-setup-local-stack-bootstrap/LAB.md) walks through these same steps as an optional hands-on lab. Use it instead of the commands below if you'd prefer a guided path. Either way, complete the setup before the session.
+
+> Tip: run each **Verify** command and confirm you get the expected output. If a command is "not found," the tool is not installed (or not on your `PATH`); revisit the install step.
 
 ## 1. Install the Toolchain
 
@@ -16,9 +18,9 @@ The live session is only about five hours. Every minute spent fixing setup is a 
 | **Node.js** (18+) | Required for the npm install of Claude Code and several tools | [nodejs.org/download](https://nodejs.org/en/download) (choose **LTS**) | `node --version` (expect `v18` or newer) |
 | **Git** | Clone the repo and work with version control | [git-scm.com/downloads](https://git-scm.com/downloads) | `git --version` |
 | **pnpm** | Install deps and run the demo-app tests | [pnpm.io/installation](https://pnpm.io/installation) · or `corepack enable` (ships with Node) | `pnpm --version` |
-| **An editor / IDE** | Read and edit code alongside the terminal | [VS Code](https://code.visualstudio.com/) · [JetBrains](https://www.jetbrains.com/) — either works | Open the cloned repo folder in it |
+| **An editor / IDE** | Read and edit code alongside the terminal | [VS Code](https://code.visualstudio.com/) · [JetBrains](https://www.jetbrains.com/), either works | Open the cloned repo folder in it |
 
-After installing Claude Code, run `claude doctor` — it checks your install, Node version, and auth in one shot and reports anything missing.
+After installing Claude Code, run `claude doctor`. It checks your install, Node version, and auth in one shot and reports anything missing.
 
 ## 2. Clone the Repository
 
@@ -27,7 +29,7 @@ git clone https://github.com/closedloop-ai/claude-code-expert-training.git
 cd claude-code-expert-training
 ```
 
-> If you don't have the repository link yet, it will be in your training calendar invite. This checklist is everything you need to arrive ready — there is no separate setup lab you have to complete first.
+> If you don't have the repository link yet, it will be in your training calendar invite. This checklist is everything you need to arrive ready. There is no separate setup lab you have to complete first.
 
 Then confirm you can open it **both** ways:
 
@@ -64,11 +66,11 @@ Skim how Claude Code decides what it can run without asking, so the live permiss
 - [TOOL-PERMISSIONS-EXAMPLES.md](TOOL-PERMISSIONS-EXAMPLES.md)
 - [Claude Code permissions & settings](https://docs.claude.com/en/docs/claude-code/settings)
 
-You do not need to master this — just know what "default-deny vs. allow" means before the session.
+You do not need to master this. Just know what "default-deny vs. allow" means before the session.
 
 ## You're Ready When
 
-Self-check — every box should be ticked before the session:
+Self-check. Every box should be ticked before the session:
 
 - [ ] `claude --version` and `claude doctor` succeed
 - [ ] `git --version`, `node --version`, and `pnpm --version` succeed
@@ -80,11 +82,10 @@ Self-check — every box should be ticked before the session:
 
 ## If You Get Stuck
 
-- Re-run the relevant **Verify** command above and read the error — most issues are a missing install or a `PATH` problem.
+- Re-run the relevant **Verify** command above and read the error. Most issues are a missing install or a `PATH` problem.
 - `claude doctor` diagnoses most Claude Code install and auth issues.
 - If something is still broken, note the exact command and error so it can be resolved quickly at the start of the session.
-
-> Prefer a guided walk-through? [Lab 00 — Environment Setup](../labs/00-environment-setup-local-stack-bootstrap/LAB.md) covers these same steps as a hands-on lab. Either way, complete the setup before the session.
+- Prefer a guided walk-through? The optional [Lab 00: Environment Setup](https://github.com/closedloop-ai/claude-code-expert-training/blob/main/labs/00-environment-setup-local-stack-bootstrap/LAB.md) covers these same steps as a hands-on lab.
 
 ## Related Files
 

@@ -97,6 +97,17 @@ ul{margin:9px 0 0 20px;padding:0} li{margin:5px 0;color:#253044}
   .pensero-row{gap:8px;margin-top:9px} .cert-badge{padding:8px 11px;gap:9px} .cert-logo{width:28px;height:28px} .cert-brand{font-size:8.5px} .cert-rank{font-size:15px} .cert-sub{font-size:9.5px}
   .card{break-inside:avoid;page-break-inside:avoid}
 }
+
+.roadmap{margin-bottom:16px}
+.roadmap-inner{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:nowrap}
+.rstep{display:flex;align-items:center;gap:11px;flex:1 1 0;min-width:0}
+.rstep-num{width:30px;height:30px;flex:0 0 auto;border-radius:50%;background:var(--cl-green);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-weight:950;font-size:14px}
+.rstep-text{display:flex;flex-direction:column;line-height:1.12;min-width:0}
+.rstep-text strong{font-size:15px;color:var(--cl-navy);font-weight:900}
+.rstep-text span{font-size:11.5px;color:var(--cl-muted);font-weight:750;margin-top:2px}
+.rarrow{flex:0 0 auto;color:var(--cl-blue);font-size:20px;font-weight:900;line-height:1}
+@media screen and (max-width:850px){.roadmap-inner{flex-direction:column;align-items:flex-start;gap:12px}.rstep{width:100%}.rarrow{transform:rotate(90deg);align-self:center}}
+@media print{.roadmap-inner{gap:6px}.rstep-num{width:22px;height:22px;font-size:11px}.rstep-text strong{font-size:11px}.rstep-text span{font-size:8.5px}.rarrow{font-size:14px}}
 </style>
 </head>
 <body>
@@ -107,23 +118,25 @@ ul{margin:9px 0 0 20px;padding:0} li{margin:5px 0;color:#253044}
       <div class="eyebrow">Attendee prep · Claude Code one-day intensive training</div>
     </div>
     <h1>Get ready for your Claude Code one-day intensive training.</h1>
-    <p>Internet Brands is rolling out Claude Code across its engineering teams, and this hands-on, one-day session helps you use it well in everyday work — less theory, more reusable operating patterns you can apply immediately. This page explains who’s running it, why, what to expect, and the two things to do before we meet.</p>
+    <p>Internet Brands is rolling out Claude Code across its engineering teams, and this hands-on, one-day session helps you use it well in everyday work, with less theory and more reusable operating patterns you can apply right away. This page explains who is running it, why, what to expect, and the two things to do before we meet.</p>
   </header>
 
   <section class="content">
-    <div class="card" style="margin-bottom:16px">
-      <h2>Before we meet</h2>
-      <div class="link-grid">
-        <div class="link-card"><strong>Setup &amp; pre-work checklist</strong><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-PREWORK-CHECKLIST.md">Get your machine ready (~15 min)</a></div>
-        <div class="link-card"><strong>What to expect on the day</strong><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-LIVE-AGENDA.md">Agenda &amp; schedule</a></div>
+    <div class="card roadmap">
+      <div class="roadmap-inner">
+        <div class="rstep"><span class="rstep-num">1</span><div class="rstep-text"><strong>Meet the team</strong><span>Who is running your training and why</span></div></div>
+        <div class="rarrow">&rarr;</div>
+        <div class="rstep"><span class="rstep-num">2</span><div class="rstep-text"><strong>Get set up</strong><span>Run the pre-work checklist before we meet</span></div></div>
+        <div class="rarrow">&rarr;</div>
+        <div class="rstep"><span class="rstep-num">3</span><div class="rstep-text"><strong>Prepare to build</strong><span>Arrive ready to start building</span></div></div>
       </div>
     </div>
     <div class="grid">
       <div>
         <div class="card blue">
-          <h2>Who is ClosedLoop?</h2>
-          <p class="intro-copy">ClosedLoop builds tooling for agentic software delivery, and we run our own product development on Claude Code every day. Throughout this page, “we” means the ClosedLoop team delivering your training.</p>
-          <p class="intro-copy">We’re not here to read you the documentation — we’ll share the operating patterns that actually work for our engineers shipping real production code: building the right Claude Code primitives, managing context intentionally, recovering evidence before changing code, reviewing against the plan, and designing workflows that improve each time they run.</p>
+          <h2>Who is ClosedLoop.AI?</h2>
+          <p class="intro-copy">ClosedLoop.AI has been building AI products for the past eight years. Over the last year, our engineering team has spent significant time developing and refining agentic software development workflows, learning what works, what doesn’t, and how to use tools like Claude Code effectively in production.</p>
+          <p class="intro-copy">This training is an opportunity to share those lessons learned and help your team come up to speed faster than we did. Throughout this page, “we” refers to the ClosedLoop.AI team leading the training.</p>
         </div>
 
         <div class="card soft" style="margin-top:16px">
@@ -140,7 +153,7 @@ ul{margin:9px 0 0 20px;padding:0} li{margin:5px 0;color:#253044}
         </div>
         <div class="card blue" style="margin-top:16px">
           <h2>Start your pre-work now</h2>
-          <p class="intro-copy">Come ready so day one is all building — open these and run the checklist before we meet.</p>
+          <p class="intro-copy">Come ready so we spend our time building, not fixing setup. Open these and run the checklist before we meet.</p>
           <div class="link-grid" style="grid-template-columns:1fr">
             <div class="link-card"><strong>1 &middot; Setup &amp; pre-work checklist</strong><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-PREWORK-CHECKLIST.md">Get your machine ready (~15 min)</a></div>
             <div class="link-card"><strong>2 &middot; What to expect on the day</strong><a href="https://github.com/closedloop-ai/claude-code-expert-training/blob/main/docs/ONE-DAY-LIVE-AGENDA.md">Agenda &amp; schedule</a></div>
@@ -161,7 +174,7 @@ ul{margin:9px 0 0 20px;padding:0} li{margin:5px 0;color:#253044}
               <div><div class="name">Daniel Ochoa</div><div class="role">Agentic Development Lead · ClosedLoop.AI</div><div class="bio">Leads hands-on patterns for Claude Code workflows, skills, agents, evidence, and review loops.</div></div>
             </div>
           </div>
-          <p style="font-size:13px;margin-top:14px"><strong>Why ClosedLoop was selected:</strong> we use Claude Code at depth, in production, every day. On Pensero — the engineering-productivity benchmark Internet Brands also uses — our team ranks among the top performers, and one of your trainers is its #1-ranked contributor. Over the last 12 months we’ve accelerated our own delivery roughly 16× using the exact habits this course teaches, across product, retail, infrastructure, healthcare, and developer-platform codebases.</p>
+          <p style="font-size:13px;margin-top:14px"><strong>Why ClosedLoop.AI was selected:</strong> we use Claude Code in production every day. On Pensero, the engineering-productivity benchmark Internet Brands also uses, our team ranks among the top performers, and one of your trainers is its #1-ranked contributor. Over the last 12 months we’ve sped up our own delivery roughly 16× using the same habits this course teaches, across product, retail, infrastructure, healthcare, and developer-platform codebases.</p>
           <div class="pensero-row">
             <div class="cert-badge"><img class="cert-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAMAAADQmBKKAAAADFBMVEUW22X////F9tlQ5Ixf45RmAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZklEQVR42u3YMRIAEAxFwY/731mroMWwW2cmr00SAAAAAIBDylwVJEiQIEGCbg4aNy9G2tY4QYIECRIkSJAgQYIECfosyOUqSJAgQYLy/o8xggQJEiRIkCBBggQJEiQIAAAAAGCLDmxRBhnguqXDAAAAAElFTkSuQmCC" alt="Pensero"><div class="cert-text"><span class="cert-brand">Pensero</span><span class="cert-rank">Top 10</span><span class="cert-sub">Team</span></div></div>
             <div class="cert-badge"><img class="cert-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAMAAADQmBKKAAAADFBMVEUW22X////F9tlQ5Ixf45RmAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAZklEQVR42u3YMRIAEAxFwY/731mroMWwW2cmr00SAAAAAIBDylwVJEiQIEGCbg4aNy9G2tY4QYIECRIkSJAgQYIECfosyOUqSJAgQYLy/o8xggQJEiRIkCBBggQJEiQIAAAAAGCLDmxRBhnguqXDAAAAAElFTkSuQmCC" alt="Pensero"><div class="cert-text"><span class="cert-brand">Pensero</span><span class="cert-rank">#1</span><span class="cert-sub">Contributor</span></div></div>
@@ -176,6 +189,7 @@ ul{margin:9px 0 0 20px;padding:0} li{margin:5px 0;color:#253044}
             <li>Evidence-first investigation and review artifacts.</li>
             <li>A workflow you can reuse after the training.</li>
           </ul>
+          <p style="margin-top:12px">This is a hands-on session, not a documentation walkthrough. We’ll focus on the workflows and operating patterns our engineers use every day: managing context, gathering evidence before making changes, reviewing work against a plan, and building repeatable development processes.</p>
         </div>
       </div>
     </div>
