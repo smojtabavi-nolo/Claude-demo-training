@@ -57,3 +57,26 @@ pnpm install && pnpm test
 ```
 
 Then start with the [pre-work checklist](docs/ONE-DAY-PREWORK-CHECKLIST.md), and open the [workbook](workbook/index.html) for the live day.
+
+## My Results
+
+smojtabavi@nolo-smojt-w11L:~/Projects/ClaudeTraining/claude-code-expert-training/examples/demo-app$ sudo 
+pnpm test
+$ vitest run
+
+ RUN  v2.1.9 /home/smojtabavi/Projects/ClaudeTraining/claude-code-expert-training/examples/demo-app
+
+ ✓ tests/auth/login.test.ts (2)
+ ✓ tests/auth/refresh-token.test.ts (2)
+
+ Test Files  2 passed (2)
+      Tests  4 passed (4)
+   Start at  17:39:33
+   Duration  540ms (transform 129ms, setup 0ms, collect 149ms, tests 17ms, environment 0ms, prepare 188ms)
+
+smojtabavi@nolo-smojt-w11L:~/Projects/ClaudeTraining/claude-code-expert-training/examples/demo-app$ sudo pnpm demo
+$ tsx src/demo.ts
+issued refresh token:    4f3123dc-437f-4749-b286-db313ef0678f
+rotated refresh token:   0a63f2e1-822c-48c6-93d5-877a833fca7f
+new token valid?         true
+OLD token still valid?   false   <- should be false after the fix
