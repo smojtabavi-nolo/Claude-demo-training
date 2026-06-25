@@ -60,7 +60,8 @@ Then start with the [pre-work checklist](docs/ONE-DAY-PREWORK-CHECKLIST.md), and
 
 ## My Results
 
-smojtabavi@nolo-smojt-w11L:~/Projects/ClaudeTraining/claude-code-expert-training/examples/demo-app$ sudo 
+```bash
+$ sudo 
 pnpm test
 $ vitest run
 
@@ -74,9 +75,10 @@ $ vitest run
    Start at  17:39:33
    Duration  540ms (transform 129ms, setup 0ms, collect 149ms, tests 17ms, environment 0ms, prepare 188ms)
 
-smojtabavi@nolo-smojt-w11L:~/Projects/ClaudeTraining/claude-code-expert-training/examples/demo-app$ sudo pnpm demo
+$ sudo pnpm demo
 $ tsx src/demo.ts
 issued refresh token:    4f3123dc-437f-4749-b286-db313ef0678f
 rotated refresh token:   0a63f2e1-822c-48c6-93d5-877a833fca7f
 new token valid?         true
 OLD token still valid?   false   <- should be false after the fix
+```
