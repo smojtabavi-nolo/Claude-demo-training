@@ -1,0 +1,5 @@
+{
+  "name": "code-review",
+  "description": "Evidence-first PR review: command, skill, subagent, hook, and a bundled tool.",
+  "version": "0.1.0"
+}
