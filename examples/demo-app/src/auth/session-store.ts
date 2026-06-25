@@ -30,11 +30,8 @@ export class SessionStore {
   }
 
   /**
-   * Rotate a refresh token: validate the presented token and issue a new one.
-   *
-   * BUG: the previous refresh token is not removed from the store, so it still
-   * validates after rotation. The fix is to invalidate it here (see the course
-   * Implementation Plan: "refresh token rotation").
+   * Rotate a refresh token: validate the presented token, issue a new one, and
+   * invalidate the previous token so it can no longer be used after rotation.
    */
   rotate(refreshToken: string): Session {
     const existing = this.sessionsByToken.get(refreshToken);
